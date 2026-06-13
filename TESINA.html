@@ -440,17 +440,17 @@ blockquote {
 
   <p>Conceria Tre Emme è un'azienda operante nel settore della lavorazione delle pelli che da oltre vent'anni utilizzava un software gestionale sviluppato con tecnologie obsolete. Il vecchio applicativo presentava problemi sempre più pressanti: lentezza operativa, vulnerabilità di sicurezza e un'interfaccia utente datata, tipica delle applicazioni Windows XP. La manutenzione del software era divenuta complessa e costosa, e l'azienda sentiva l'esigenza di modernizzare il proprio strumento di lavoro senza però stravolgere i processi operativi consolidati.</p>
 
-  <img src="imgs/image.png" alt="Vecchia interfaccia del software legacy">
+  <img src="imgs/vecchio-frontend.png" alt="Vecchia interfaccia del software legacy">
   <span class="img-caption">Interfaccia del precedente software gestionale, sviluppato con logica Windows XP, caratterizzato da un'interfaccia utente datata e limitate funzionalità di interazione.</span>
 
   <p>Il cliente ha quindi richiesto un software veloce, con un'interfaccia utente moderna, che non modificasse radicalmente la logica di interazione già nota agli operatori. L'obiettivo era sostituire il vecchio gestionale con una soluzione web-based, accessibile da browser, performante e con un'esperienza utente migliorata.</p>
 
   <p>Per tutta la durata dello sviluppo, ho avuto accesso al computer remoto della conceria per studiare i form dei pannelli già esistenti, in modo da replicarne la struttura e la logica operativa nella nuova interfaccia.</p>
 
-  <img src="imgs/image-tremme.png" alt="Schermata di login della nuova interfaccia">
+  <img src="imgs/nuovo-frontend-login.png" alt="Schermata di login della nuova interfaccia">
   <span class="img-caption">Nuova interfaccia di login del gestionale Treemme, con design moderno e sistema di autenticazione a due fattori.</span>
 
-  <img src="imgs/Screenshot 2026-05-12 155140.png" alt="Schermata principale del nuovo gestionale">
+  <img src="imgs/nuovo-frontend.png" alt="Schermata principale del nuovo gestionale">
   <span class="img-caption">Workspace principale del nuovo gestionale con pannelli aperti: l'interfaccia a tab consente la gestione simultanea di più moduli operativi.</span>
 
   <p>Il progetto si è posto i seguenti obiettivi principali:</p>
@@ -620,7 +620,7 @@ Pannello Contatti — store Zustand #3 — { selectedId: 3, formEnabled: false }
 
   <p>Un'altra funzionalità innovativa implementata è la comunicazione tra pannelli. Quando un operatore si trova all'interno di un form (ad esempio, Creazione Ordine) e deve selezionare un contatto che non esiste ancora, può premere invio sul campo select per aprire direttamente il pannello di creazione contatti. Una volta inserito il nuovo contatto, il sistema comunica automaticamente l'ID appena creato al pannello chiamante, popolando il campo select senza che l'utente debba ripetere la selezione.</p>
 
-  <img src="imgs/image-rtremme-2.png" alt="Comunicazione tra pannelli">
+  <img src="imgs/nuovo-frontend-pannelli-ordini-clienti.png" alt="Comunicazione tra pannelli">
   <span class="img-caption">Esempio di comunicazione cross-pannello: la selezione di un contatto in un form apre automaticamente il pannello di creazione, con ritorno del dato al pannello chiamante.</span>
 
   <p>Questo meccanismo è stato realizzato utilizzando la cache di React Query come bus di comunicazione: il pannello creatore scrive l'ID dell'entità appena creata in una query key speciale (<code>LAST_CREATED</code>), mentre il pannello ricevente sottoscrive i cambiamenti di quella key tramite l'hook <code>useSubscribePanel</code>. In questo modo si evita l'accoppiamento diretto tra pannelli, mantenendo l'architettura modulare e disaccoppiata.</p>
@@ -650,13 +650,13 @@ Pannello Contatti — store Zustand #3 — { selectedId: 3, formEnabled: false }
 
   <p>Le seguenti immagini mostrano l'interfaccia grafica di inserimento dati a pannelli del software, con i form di creazione e modifica attivi:</p>
 
-  <img src="imgs/image-3.png" alt="Interfaccia di inserimento dati">
+  <img src="imgs/nuovo-fronend-pannelli-pellami-lotti.png" alt="Interfaccia di inserimento dati">
   <span class="img-caption">Interfaccia di inserimento dati con pannelli aperti in modalità creazione e modifica: si noti la presenza di più tab contemporaneamente.</span>
 
-  <img src="imgs/image-4.png" alt="Pannelli di gestione dati">
+  <img src="imgs/nuovo-frontend-pannelli-utente-permessi.png" alt="Pannelli di gestione dati">
   <span class="img-caption">Pannelli di gestione anagrafiche e dati operativi: la struttura lista-form consente una navigazione efficiente dei dati.</span>
 
-  <img src="imgs/image-5.png" alt="Pannelli di dettaglio">
+  <img src="imgs/vecchio-frontend-pannello-pellami.png" alt="Pannelli di dettaglio">
   <span class="img-caption">Dettaglio dei pannelli con form di inserimento e tabelle di lista: ogni pannello supporta le operazioni CRUD complete.</span>
 
   <p><strong>Sistema di permessi e autenticazione:</strong></p>
