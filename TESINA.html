@@ -643,22 +643,12 @@ Pannello Contatti — store Zustand #3 — { selectedId: 3, formEnabled: false }
   <img src="imgs/analisi-processo-conceria-schema.png" alt="Schema analisi processi conceria">
   <span class="img-caption">Schema di analisi dei processi di concia: il diagramma illustra il flusso operativo che lega l'apertura dei pannelli alla gestione dei lotti di produzione e degli ordini cliente.</span>
 
-  <p><strong>Pannelli di inserimento dati:</strong></p>
-
-  <p>Le seguenti immagini mostrano l'interfaccia grafica di inserimento dati a pannelli del software, con i form di creazione e modifica attivi:</p>
-
-  <img src="imgs/nuovo-fronend-pannelli-pellami-lotti.png" alt="Interfaccia di inserimento dati">
-  <span class="img-caption">Interfaccia di inserimento dati con pannelli aperti in modalità creazione e modifica: si noti la presenza di più tab contemporaneamente.</span>
-
-  <img src="imgs/nuovo-frontend-pannelli-utente-permessi.png" alt="Pannelli di gestione dati">
-  <span class="img-caption">Pannelli di gestione anagrafiche e dati operativi: la struttura lista-form consente una navigazione efficiente dei dati.</span>
-
-  <img src="imgs/vecchio-frontend-pannello-pellami.png" alt="Pannelli di dettaglio">
-  <span class="img-caption">Dettaglio dei pannelli con form di inserimento e tabelle di lista: ogni pannello supporta le operazioni CRUD complete.</span>
-
   <p><strong>Sistema di permessi e autenticazione:</strong></p>
 
   <p>Il software implementa un sistema di autenticazione a due fattori (password + OTP opzionale) e un sistema di autorizzazione granulare basato su risorse e azioni. Gli utenti appartengono a gruppi (Admin, Staff) e ciascun gruppo ha permessi specifici sulle risorse gestionali (contatti, produzione, ordini, ecc.). Il menu e le route vengono filtrati automaticamente in base ai permessi dell'utente, garantendo che ciascun operatore veda solo i moduli di sua competenza.</p>
+
+  <img src="imgs/nuovo-frontend-pannelli-utente-permessi.png" alt="Pannello gestione permessi utente">
+  <span class="img-caption">Interfaccia di gestione dei permessi utente: selezione di gruppi e risorse per la configurazione degli accessi.</span>
 
   <p>Il sistema di autorizzazione opera su tre livelli: a livello di componente (visibilità dei pulsanti e delle sezioni), a livello di hook (verifica dei permessi prima di eseguire operazioni) e a livello di engine (controllo centralizzato delle policy). Questa architettura a strati garantisce che non sia possibile eludere i controlli di autorizzazione, nemmeno intervenendo direttamente sul codice frontend.</p>
 
