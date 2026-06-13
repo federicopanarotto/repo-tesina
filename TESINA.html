@@ -132,9 +132,6 @@ body {
   line-height: 1.8;
   margin-top: 60px;
 }
-.cover-page .cover-footer strong {
-  color: #333;
-}
 .toc-logo {
   text-align: center;
   margin-top: 50px;
@@ -168,6 +165,16 @@ body {
   border: none;
   box-shadow: none;
   padding: 0;
+}
+.cover-footer .cover-footer-text {
+  font-family: Verdana, 'Segoe UI', sans-serif;
+  font-size: 11pt;
+  color: #555;
+  line-height: 1.6;
+}
+.cover-footer .cover-footer-text strong {
+  color: #0d47a1;
+  font-size: 12pt;
 }
 
 /* ===== TABLE OF CONTENTS ===== */
@@ -413,9 +420,11 @@ blockquote {
 
   <div class="cover-footer">
     <div class="cover-logo"><img src="imgs/loghi-its.jpg" alt="ITS Digital Academy"></div>
-    <strong>Fondazione ITS DIGITAL ACADEMY Mario Volpato</strong><br>
-    Via Risorgimento, 29 — Noventa Padovana (PD)<br>
-    info@itsdigitalacademy.com
+    <div class="cover-footer-text">
+      <strong>Fondazione ITS DIGITAL ACADEMY Mario Volpato</strong><br>
+      Via Risorgimento, 29 — Noventa Padovana (PD)<br>
+      info@itsdigitalacademy.com
+    </div>
   </div>
 </div>
 
@@ -452,7 +461,8 @@ blockquote {
     <img src="imgs/loghi-its.jpg" alt="ITS Digital Academy">
     <div class="toc-logo-text">
       <strong>Fondazione ITS DIGITAL ACADEMY Mario Volpato</strong><br>
-      Via Risorgimento, 29 — Noventa Padovana (PD)
+      Via Risorgimento, 29 — Noventa Padovana (PD)<br>
+      info@itsdigitalacademy.com
     </div>
   </div>
 </div>
