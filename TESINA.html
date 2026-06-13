@@ -596,9 +596,9 @@ useDelete()      → DELETE /endpoint/:id (eliminazione)</pre>
 
   <p>Ciascun hook gestisce automaticamente la cache, l'invalidazione dei dati dopo le mutazioni e la gestione degli errori. La definizione di un'API per un nuovo pannello si riduce a poche righe di codice:</p>
 
-  <pre><code>export const carrierApi = createPanelApi&lt;ICarrier&gt;({
-    baseEndpoint: "/shipping-carrier",
-    queryKey: "CARRIER"
+  <pre><code>export const batchApi = createPanelApi&lt;IBatch&gt;({
+    baseEndpoint: "/batch",
+    queryKey: "BATCH"
 });</code></pre>
 
   <p>Questa factory astrae completamente la complessità della gestione delle chiamate HTTP e del caching, permettendo allo sviluppatore di concentrarsi sulla logica di business del singolo pannello.</p>
