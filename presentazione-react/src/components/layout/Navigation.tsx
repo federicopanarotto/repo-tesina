@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 
 interface NavRoute {
@@ -35,20 +36,19 @@ export default function Navigation() {
     }
   };
 
-  const handleKeyDown = (e: globalThis.KeyboardEvent) => {
-    if (e.key === "ArrowLeft" || e.key === "ArrowUp") goTo(currentIndex - 1);
-    if (e.key === "ArrowRight" || e.key === "ArrowDown" || e.key === " ") {
-      e.preventDefault();
-      goTo(currentIndex + 1);
-    }
-    if (e.key === "Home") goTo(0);
-    if (e.key === "End") goTo(routes.length - 1);
-  };
-
-  if (typeof window !== "undefined") {
-    window.removeEventListener("keydown", handleKeyDown);
+  useEffect(() => {
+    const handleKeyDown = (e: globalThis.KeyboardEvent) => {
+      if (e.key === "ArrowLeft" || e.key === "ArrowUp") goTo(currentIndex - 1);
+      if (e.key === "ArrowRight" || e.key === "ArrowDown" || e.key === " ") {
+        e.preventDefault();
+        goTo(currentIndex + 1);
+      }
+      if (e.key === "Home") goTo(0);
+      if (e.key === "End") goTo(routes.length - 1);
+    };
     window.addEventListener("keydown", handleKeyDown);
-  }
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [currentIndex]);
 
   return (
     <>
