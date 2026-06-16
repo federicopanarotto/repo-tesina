@@ -1,0 +1,1124 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Project Work — Sviluppo Software Gestionale Conceria</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --primary: #0d47a1;
+  --primary-light: #1565c0;
+  --primary-dark: #0a3a7a;
+  --accent: #42a5f5;
+  --bg: #f0f2f5;
+  --slide-bg: #ffffff;
+  --text: #1a1a1a;
+  --text-light: #555;
+  --border: #e0e0e0;
+}
+
+body {
+  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  overflow: hidden;
+  height: 100vh;
+  width: 100vw;
+}
+
+/* === SLIDE CONTAINER === */
+.slides-container {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.slide {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 5vh 6vw;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.4s ease, visibility 0.4s ease;
+  background: var(--slide-bg);
+}
+
+.slide.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.slide-inner {
+  width: 100%;
+  max-width: 1200px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* === SLIDE HEADER === */
+.slide-header {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 3vh;
+  padding-bottom: 12px;
+  border-bottom: 3px solid var(--primary);
+}
+
+.slide-header i {
+  font-size: 2rem;
+  color: var(--primary);
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #e8eaf6;
+  border-radius: 12px;
+}
+
+.slide-header h2 {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--primary);
+  letter-spacing: -0.5px;
+}
+
+/* === SLIDE NUMBER === */
+.slide-number {
+  position: absolute;
+  bottom: 2.5vh;
+  right: 3vw;
+  font-size: 0.85rem;
+  color: #999;
+  font-weight: 600;
+}
+
+/* === COVER SLIDE === */
+.slide-cover {
+  background: linear-gradient(135deg, #0d47a1 0%, #1565c0 40%, #1976d2 100%);
+  color: #fff;
+  text-align: center;
+  padding: 5vh 8vw;
+}
+
+.slide-cover .slide-inner {
+  align-items: center;
+}
+
+.slide-cover .cover-badge {
+  display: inline-block;
+  background: rgba(255,255,255,0.15);
+  padding: 8px 28px;
+  border-radius: 30px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 30px;
+  backdrop-filter: blur(4px);
+}
+
+.slide-cover h1 {
+  font-size: 2.6rem;
+  font-weight: 800;
+  line-height: 1.2;
+  margin-bottom: 12px;
+  letter-spacing: -1px;
+}
+
+.slide-cover .cover-sub {
+  font-size: 1.1rem;
+  opacity: 0.85;
+  margin-bottom: 40px;
+  font-weight: 300;
+}
+
+.slide-cover .cover-divider {
+  width: 80px;
+  height: 3px;
+  background: var(--accent);
+  margin: 0 auto 30px;
+  border-radius: 2px;
+}
+
+.slide-cover .cover-info {
+  display: flex;
+  gap: 40px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.slide-cover .cover-info-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.95rem;
+  opacity: 0.9;
+}
+
+.slide-cover .cover-info-item i {
+  font-size: 1.1rem;
+  opacity: 0.7;
+}
+
+.slide-cover .cover-logo {
+  margin-top: 35px;
+}
+
+.slide-cover .cover-logo img {
+  max-height: 50px;
+  opacity: 0.8;
+}
+
+/* === THANKS SLIDE === */
+.slide-thanks {
+  background: linear-gradient(135deg, #0d47a1 0%, #1565c0 40%, #1976d2 100%);
+  color: #fff;
+  text-align: center;
+}
+
+.slide-thanks .slide-inner {
+  align-items: center;
+}
+
+.slide-thanks h1 {
+  font-size: 3rem;
+  font-weight: 800;
+  margin-bottom: 16px;
+}
+
+.slide-thanks p {
+  font-size: 1.1rem;
+  opacity: 0.8;
+}
+
+.slide-thanks .thanks-icon {
+  font-size: 4rem;
+  margin-bottom: 20px;
+  opacity: 0.6;
+}
+
+/* === CONTENT SLIDE === */
+.content-area {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1.5vh;
+}
+
+/* === BULLET LIST === */
+.bullet-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.bullet-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  font-size: 1.05rem;
+  line-height: 1.5;
+}
+
+.bullet-list li i {
+  color: var(--primary);
+  font-size: 1rem;
+  margin-top: 4px;
+  min-width: 20px;
+}
+
+.bullet-list li .bullet-label {
+  font-weight: 700;
+  color: var(--primary-dark);
+}
+
+/* === GRID === */
+.grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+
+.grid-3 {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 20px;
+}
+
+.grid-4 {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 16px;
+}
+
+.grid-card {
+  background: #f8f9fc;
+  border-radius: 12px;
+  padding: 20px;
+  border: 1px solid var(--border);
+  transition: transform 0.2s;
+}
+
+.grid-card:hover {
+  transform: translateY(-2px);
+}
+
+.grid-card .card-icon {
+  font-size: 1.6rem;
+  color: var(--primary);
+  margin-bottom: 10px;
+}
+
+.grid-card h4 {
+  font-size: 0.95rem;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.grid-card p {
+  font-size: 0.85rem;
+  color: var(--text-light);
+  line-height: 1.4;
+}
+
+/* === TABLE === */
+.slide-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+}
+
+.slide-table th {
+  background: #e8eaf6;
+  color: var(--primary-dark);
+  font-weight: 700;
+  padding: 10px 14px;
+  text-align: left;
+  border-bottom: 2px solid var(--primary);
+}
+
+.slide-table td {
+  padding: 8px 14px;
+  border-bottom: 1px solid var(--border);
+}
+
+.slide-table tr:last-child td {
+  border-bottom: none;
+}
+
+/* === IMAGE CONTAINER === */
+.img-row {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
+  max-height: 55vh;
+}
+
+.img-row img {
+  max-width: 48%;
+  max-height: 100%;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+  object-fit: contain;
+}
+
+.img-single {
+  max-width: 70%;
+  max-height: 55vh;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+  object-fit: contain;
+  margin: 0 auto;
+}
+
+/* === TAG === */
+.tag {
+  display: inline-block;
+  background: #e8eaf6;
+  color: var(--primary-dark);
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 3px 10px;
+  border-radius: 4px;
+  letter-spacing: 0.3px;
+}
+
+/* === NAVIGATION === */
+.nav-arrow {
+  position: fixed;
+  bottom: 2.5vh;
+  z-index: 100;
+  background: rgba(13,71,161,0.9);
+  color: #fff;
+  border: none;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 1.1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s, transform 0.2s;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+}
+
+.nav-arrow:hover {
+  background: var(--primary);
+  transform: scale(1.05);
+}
+
+.nav-arrow.prev {
+  left: 3vw;
+}
+
+.nav-arrow.next {
+  right: 3vw;
+}
+
+.nav-dots {
+  position: fixed;
+  bottom: 3.5vh;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 8px;
+  z-index: 100;
+}
+
+.nav-dots .dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #ccc;
+  border: none;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.2s;
+  padding: 0;
+}
+
+.nav-dots .dot.active {
+  background: var(--primary);
+  transform: scale(1.3);
+}
+
+.nav-dots .dot:hover {
+  background: #999;
+}
+
+/* === PROGRESS BAR === */
+.progress-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 3px;
+  background: var(--primary);
+  z-index: 200;
+  transition: width 0.4s ease;
+}
+
+/* === PRINT STYLES === */
+@media print {
+  @page {
+    size: 1280px 720px;
+    margin: 0;
+  }
+
+  body {
+    overflow: visible;
+    background: #fff;
+  }
+
+  .slides-container {
+    width: 100%;
+    height: auto;
+    overflow: visible;
+  }
+
+  .slide {
+    position: relative;
+    width: 1280px;
+    height: 720px;
+    padding: 40px 80px;
+    opacity: 1 !important;
+    visibility: visible !important;
+    page-break-after: always;
+    page-break-inside: avoid;
+    overflow: hidden;
+    left: auto !important;
+  }
+
+  .nav-arrow, .nav-dots, .progress-bar {
+    display: none !important;
+  }
+
+  .slide-number {
+    bottom: 15px;
+    right: 30px;
+  }
+
+  .grid-card:hover {
+    transform: none;
+  }
+
+  .img-single, .img-row img {
+    max-height: 400px;
+  }
+
+  .slide-cover, .slide-thanks {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  .grid-card {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+}
+
+/* Scrollbar hide */
+::-webkit-scrollbar { display: none; }
+
+/* === RESPONSIVE === */
+@media (max-width: 768px) {
+  .slide { padding: 3vh 4vw; }
+  .slide-cover h1 { font-size: 1.8rem; }
+  .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr; }
+  .img-row { flex-direction: column; }
+  .img-row img { max-width: 90%; }
+}
+</style>
+</head>
+<body>
+
+<div class="progress-bar" id="progressBar"></div>
+
+<div class="slides-container" id="slidesContainer">
+
+  <!-- ==================== SLIDE 1 — COVER ==================== -->
+  <section class="slide slide-cover active" data-index="0">
+    <div class="slide-inner">
+      <div class="cover-badge"><i class="fas fa-graduation-cap" style="margin-right:8px;"></i> Project Work — Biennio 2024/2026</div>
+      <h1>Sviluppo Software Gestionale<br>Conceria a Pannelli Modulari</h1>
+      <p class="cover-sub">Frontend React &bull; TypeScript &bull; Dockview &bull; MUI 7</p>
+      <div class="cover-divider"></div>
+      <div class="cover-info">
+        <span class="cover-info-item"><i class="fas fa-user"></i> Federico Panarotto</span>
+        <span class="cover-info-item"><i class="fas fa-code"></i> Web Developer Full Stack</span>
+        <span class="cover-info-item"><i class="fas fa-building"></i> NetEvolution — Arzignano (VI)</span>
+      </div>
+      <div class="cover-logo">
+        <img src="imgs/loghi-its.jpg" alt="ITS Digital Academy">
+      </div>
+    </div>
+    <span class="slide-number">1 / 16</span>
+  </section>
+
+  <!-- ==================== SLIDE 2 — AGENDA ==================== -->
+  <section class="slide" data-index="1">
+    <div class="slide-inner">
+      <div class="slide-header">
+        <i class="fas fa-list-check"></i>
+        <h2>Agenda</h2>
+      </div>
+      <div class="content-area">
+        <ul class="bullet-list" style="gap:14px;">
+          <li><i class="fas fa-bullseye"></i> <span><span class="bullet-label">Contesto e obiettivi</span> — Conceria Tre Emme e il software legacy</span></li>
+          <li><i class="fas fa-clipboard-list"></i> <span><span class="bullet-label">Requisiti</span> — Funzionali e non funzionali</span></li>
+          <li><i class="fas fa-layer-group"></i> <span><span class="bullet-label">Stack tecnologico</span> — React 19, TypeScript, MUI, Dockview</span></li>
+          <li><i class="fas fa-cubes"></i> <span><span class="bullet-label">Architettura</span> — Pannelli modulari, componenti generici, factory pattern</span></li>
+          <li><i class="fas fa-diagram-project"></i> <span><span class="bullet-label">Feature avanzate</span> — Cross-panel communication, permessi, shortcut</span></li>
+          <li><i class="fas fa-chart-line"></i> <span><span class="bullet-label">Risultati</span> — 50+ pannelli, 35K righe di codice</span></li>
+          <li><i class="fas fa-lightbulb"></i> <span><span class="bullet-label">Criticità e sviluppi futuri</span></span></li>
+        </ul>
+      </div>
+    </div>
+    <span class="slide-number">2 / 16</span>
+  </section>
+
+  <!-- ==================== SLIDE 3 — CONTESTO ==================== -->
+  <section class="slide" data-index="2">
+    <div class="slide-inner">
+      <div class="slide-header">
+        <i class="fas fa-bullseye"></i>
+        <h2>Contesto e Obiettivi</h2>
+      </div>
+      <div class="content-area">
+        <div class="grid-2">
+          <div>
+            <h3 style="font-size:1rem;margin-bottom:10px;color:var(--primary);"><i class="fas fa-triangle-exclamation"></i> Il problema</h3>
+            <ul class="bullet-list">
+              <li><i class="fas fa-clock"></i> Software legacy con <strong>oltre 20 anni</strong> di anzianità</li>
+              <li><i class="fas fa-bug"></i> Lentezza operativa e vulnerabilità di sicurezza</li>
+              <li><i class="fas fa-window-maximize"></i> Interfaccia Windows XP — datata e poco performante</li>
+              <li><i class="fas fa-tools"></i> Manutenzione complessa e costosa</li>
+            </ul>
+          </div>
+          <div>
+            <h3 style="font-size:1rem;margin-bottom:10px;color:var(--primary);"><i class="fas fa-check-circle"></i> La soluzione</h3>
+            <ul class="bullet-list">
+              <li><i class="fas fa-globe"></i> Applicazione <strong>web-based</strong> moderna e veloce</li>
+              <li><i class="fas fa-puzzle-piece"></i> Interfaccia a <strong>pannelli modulari</strong></li>
+              <li><i class="fas fa-shield"></i> Autenticazione a due fattori + permessi granulari</li>
+              <li><i class="fas fa-users"></i> Stessa logica operativa — curva di apprendimento zero</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <span class="slide-number">3 / 16</span>
+  </section>
+
+  <!-- ==================== SLIDE 4 — VECCHIO VS NUOVO ==================== -->
+  <section class="slide" data-index="3">
+    <div class="slide-inner">
+      <div class="slide-header">
+        <i class="fas fa-image"></i>
+        <h2>Vecchia vs Nuova Interfaccia</h2>
+      </div>
+      <div class="content-area">
+        <div class="img-row">
+          <div style="text-align:center;flex:1;">
+            <img src="imgs/vecchio-frontend-pannello-pellami.png" alt="Vecchia interfaccia" style="max-width:100%;max-height:35vh;">
+            <p style="font-size:0.8rem;color:#999;margin-top:6px;"><i class="fas fa-windows"></i> Software legacy — Windows XP</p>
+          </div>
+          <div style="text-align:center;flex:1;">
+            <img src="imgs/nuovo-frontend.png" alt="Nuova interfaccia" style="max-width:100%;max-height:35vh;">
+            <p style="font-size:0.8rem;color:#999;margin-top:6px;"><i class="fas fa-rocket"></i> Nuovo gestionale — React + MUI</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <span class="slide-number">4 / 16</span>
+  </section>
+
+  <!-- ==================== SLIDE 5 — REQUISITI ==================== -->
+  <section class="slide" data-index="4">
+    <div class="slide-inner">
+      <div class="slide-header">
+        <i class="fas fa-clipboard-list"></i>
+        <h2>Requisiti del Progetto</h2>
+      </div>
+      <div class="content-area">
+        <div class="grid-2" style="flex:1;">
+          <div>
+            <h3 style="font-size:0.95rem;margin-bottom:8px;color:var(--primary);"><i class="fas fa-cog"></i> Funzionali</h3>
+            <ul class="bullet-list" style="gap:6px;">
+              <li><i class="fas fa-address-book"></i> Anagrafiche: contatti, fornitori, agenti</li>
+              <li><i class="fas fa-cow"></i> Pellami: specie, origini, tipologie, stadi concia</li>
+              <li><i class="fas fa-tag"></i> Articoli: tipologie, colori, classi, stampe</li>
+              <li><i class="fas fa-file-invoice"></i> Ordini cliente e righe d'ordine</li>
+              <li><i class="fas fa-boxes"></i> Lotti produzione: composizione, movimenti</li>
+              <li><i class="fas fa-truck"></i> DDT e righe di trasporto</li>
+              <li><i class="fas fa-warehouse"></i> Magazzino: partite, movimenti, pallet</li>
+              <li><i class="fas fa-chart-bar"></i> Analisi dati: vendite, lotti, movimenti</li>
+              <li><i class="fas fa-user-shield"></i> Utenti, gruppi, permessi resource-action</li>
+            </ul>
+          </div>
+          <div>
+            <h3 style="font-size:0.95rem;margin-bottom:8px;color:var(--primary);"><i class="fas fa-sliders"></i> Non Funzionali</h3>
+            <ul class="bullet-list" style="gap:6px;">
+              <li><i class="fas fa-puzzle-piece"></i> Pannelli modulari apribili simultaneamente</li>
+              <li><i class="fas fa-bolt"></i> Bassa latenza e reattività</li>
+              <li><i class="fas fa-language"></i> Multilingua: italiano / inglese</li>
+              <li><i class="fas fa-sun"></i> Tema chiaro e scuro personalizzabile</li>
+              <li><i class="fas fa-keyboard"></i> Scorciatoie da tastiera (F4, F9, F10, Esc)</li>
+              <li><i class="fas fa-shield-halved"></i> Autenticazione robusta con OTP</li>
+              <li><i class="fas fa-universal-access"></i> UX moderna, chiara e intuitiva</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <span class="slide-number">5 / 16</span>
+  </section>
+
+  <!-- ==================== SLIDE 6 — STACK TECNOLOGICO ==================== -->
+  <section class="slide" data-index="5">
+    <div class="slide-inner">
+      <div class="slide-header">
+        <i class="fas fa-layer-group"></i>
+        <h2>Stack Tecnologico</h2>
+      </div>
+      <div class="content-area">
+        <div class="grid-3">
+          <div class="grid-card">
+            <div class="card-icon"><i class="fab fa-react"></i></div>
+            <h4>React 19</h4>
+            <p>Framework UI con ecosistema ricco</p>
+          </div>
+          <div class="grid-card">
+            <div class="card-icon"><i class="fas fa-file-code"></i></div>
+            <h4>TypeScript 5.9</h4>
+            <p>Tipizzazione strict mode per robustezza</p>
+          </div>
+          <div class="grid-card">
+            <div class="card-icon"><i class="fas fa-bolt"></i></div>
+            <h4>Vite 7</h4>
+            <p>Build tool veloce e moderno</p>
+          </div>
+          <div class="grid-card">
+            <div class="card-icon"><i class="fas fa-palette"></i></div>
+            <h4>Material-UI 7</h4>
+            <p>Componenti UI, tema chiaro/scuro</p>
+          </div>
+          <div class="grid-card">
+            <div class="card-icon"><i class="fas fa-table-cells-large"></i></div>
+            <h4>Dockview 5</h4>
+            <p>Architettura a pannelli modulari</p>
+          </div>
+          <div class="grid-card">
+            <div class="card-icon"><i class="fas fa-database"></i></div>
+            <h4>TanStack Query 5</h4>
+            <p>Stato server, caching intelligente</p>
+          </div>
+          <div class="grid-card">
+            <div class="card-icon"><i class="fas fa-circle-nodes"></i></div>
+            <h4>Zustand 5</h4>
+            <p>Stato locale isolato per pannello</p>
+          </div>
+          <div class="grid-card">
+            <div class="card-icon"><i class="fas fa-wpforms"></i></div>
+            <h4>react-hook-form</h4>
+            <p>Gestione form complessi</p>
+          </div>
+          <div class="grid-card">
+            <div class="card-icon"><i class="fas fa-table"></i></div>
+            <h4>material-react-table</h4>
+            <p>Tabelle filtrabili e ordinabili</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <span class="slide-number">6 / 16</span>
+  </section>
+
+  <!-- ==================== SLIDE 7 — ARCHITETTURA ==================== -->
+  <section class="slide" data-index="6">
+    <div class="slide-inner">
+      <div class="slide-header">
+        <i class="fas fa-cubes"></i>
+        <h2>Architettura del Frontend</h2>
+      </div>
+      <div class="content-area">
+        <div class="grid-2">
+          <div>
+            <h3 style="font-size:0.95rem;margin-bottom:8px;color:var(--primary);">Feature-Sliced Pattern</h3>
+            <pre style="background:#f5f5f5;padding:14px;border-radius:8px;font-size:0.7rem;line-height:1.5;border-left:3px solid var(--primary);">src/
+  apps/default/      Entry point
+  features/
+    auth/            Login, OTP, logout
+    panels/          Tutti i pannelli dockview
+    routing/         Route e guard
+    search/          Ricerca globale
+    user/            Gestione utenti e ruoli
+  shared/
+    api/             Layer API (axios, query keys)
+    ui/              Componenti riusabili
+    themes/          Tema chiaro / scuro
+    interfaces/      TypeScript interfaces</pre>
+          </div>
+          <div style="display:flex;flex-direction:column;justify-content:center;">
+            <img src="imgs/architettura-pannelli-dockview.png" alt="Architettura pannelli" style="max-width:100%;max-height:32vh;border-radius:8px;">
+          </div>
+        </div>
+      </div>
+    </div>
+    <span class="slide-number">7 / 16</span>
+  </section>
+
+  <!-- ==================== SLIDE 8 — COMPONENTI GENERICI ==================== -->
+  <section class="slide" data-index="7">
+    <div class="slide-inner">
+      <div class="slide-header">
+        <i class="fas fa-puzzle-piece"></i>
+        <h2>Componenti Generici Riutilizzabili</h2>
+      </div>
+      <div class="content-area">
+        <div class="grid-3" style="margin-bottom:16px;">
+          <div class="grid-card" style="text-align:center;">
+            <div class="card-icon"><i class="fas fa-frame" style="font-size:2rem;"></i></div>
+            <h4>GenericPanel</h4>
+            <p>Contenitore del pannello, layout lista + form</p>
+          </div>
+          <div class="grid-card" style="text-align:center;">
+            <div class="card-icon"><i class="fas fa-table-list" style="font-size:2rem;"></i></div>
+            <h4>GenericList</h4>
+            <p>Tabella filtrabile, ordinabile, selezione riga</p>
+          </div>
+          <div class="grid-card" style="text-align:center;">
+            <div class="card-icon"><i class="fas fa-pen-to-square" style="font-size:2rem;"></i></div>
+            <h4>GenericForm</h4>
+            <p>CRUD completo, permessi, shortcut, dialog</p>
+          </div>
+        </div>
+        <div style="text-align:center;">
+          <img src="imgs/lista-pannelli-dockview.png" alt="Lista pannelli" style="max-width:75%;max-height:28vh;border-radius:8px;">
+        </div>
+      </div>
+    </div>
+    <span class="slide-number">8 / 16</span>
+  </section>
+
+  <!-- ==================== SLIDE 9 — FACTORY PATTERN ==================== -->
+  <section class="slide" data-index="8">
+    <div class="slide-inner">
+      <div class="slide-header">
+        <i class="fas fa-industry"></i>
+        <h2>Pattern Factory per le API</h2>
+      </div>
+      <div class="content-area">
+        <div class="grid-2">
+          <div>
+            <p style="font-size:1rem;margin-bottom:12px;">
+              <code style="background:#e8eaf6;padding:2px 8px;border-radius:4px;font-weight:700;">createPanelApiFactory</code>
+              genera automaticamente 5 hook CRUD:
+            </p>
+            <ul class="bullet-list" style="gap:8px;">
+              <li><i class="fas fa-download"></i> <code>useGetList()</code> — GET /endpoint</li>
+              <li><i class="fas fa-circle-info"></i> <code>useGetDetail(id)</code> — GET /endpoint/:id</li>
+              <li><i class="fas fa-plus"></i> <code>usePost()</code> — POST /endpoint</li>
+              <li><i class="fas fa-pen"></i> <code>usePut()</code> — PUT /endpoint/:id</li>
+              <li><i class="fas fa-trash"></i> <code>useDelete()</code> — DELETE /endpoint/:id</li>
+            </ul>
+            <p style="margin-top:16px;font-size:0.9rem;color:var(--text-light);">
+              <i class="fas fa-check-circle" style="color:#2e7d32;"></i> Cache automatica + invalidazione dopo mutazioni
+            </p>
+          </div>
+          <div>
+            <p style="font-size:0.9rem;font-weight:700;margin-bottom:6px;">Definizione in poche righe:</p>
+            <pre style="background:#1a1a2e;color:#e0e0e0;padding:14px;border-radius:8px;font-size:0.75rem;line-height:1.6;"><span style="color:#82aaff;">export</span><span style="color:#c792ea;"> const</span><span style="color:#ffcb6b;"> batchApi</span><span style="color:#89ddff;"> =</span><span style="color:#82aaff;"> createPanelApi</span><span style="color:#89ddff;">&lt;</span><span style="color:#c792ea;">IBatch</span><span style="color:#89ddff;">&gt;</span>({
+  <span style="color:#89ddff;">baseEndpoint</span>: <span style="color:#c3e88d;">"/batch"</span>,
+  <span style="color:#89ddff;">queryKey</span>: <span style="color:#c3e88d;">"BATCH"</span>
+});</pre>
+            <p style="margin-top:8px;font-size:0.9rem;color:var(--text-light);">Ogni pannello = poche righe dichiarative.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <span class="slide-number">9 / 16</span>
+  </section>
+
+  <!-- ==================== SLIDE 10 — CROSS-PANEL ==================== -->
+  <section class="slide" data-index="9">
+    <div class="slide-inner">
+      <div class="slide-header">
+        <i class="fas fa-arrow-right-arrow-left"></i>
+        <h2>Comunicazione Cross-Pannello</h2>
+      </div>
+      <div class="content-area">
+        <div class="grid-2">
+          <div>
+            <ul class="bullet-list" style="gap:10px;">
+              <li><i class="fas fa-comment-dots"></i> Selezione contatto inesistente → apertura pannello creazione</li>
+              <li><i class="fas fa-retweet"></i> Cache React Query come <strong>bus di comunicazione</strong></li>
+              <li><i class="fas fa-key"></i> Query key speciale <code>LAST_CREATED</code></li>
+              <li><i class="fas fa-eye"></i> <code>useSubscribePanel</code> sottoscrive i cambiamenti</li>
+              <li><i class="fas fa-puzzle-piece"></i> Nessun accoppiamento diretto tra pannelli</li>
+            </ul>
+            <div style="margin-top:16px;">
+              <span class="tag"><i class="fas fa-keyboard" style="margin-right:4px;"></i> Shortcut</span>
+              <span class="tag" style="margin-left:6px;">F4 = Modifica</span>
+              <span class="tag" style="margin-left:6px;">F9 = Crea</span>
+              <span class="tag" style="margin-left:6px;">F10 = Salva</span>
+              <span class="tag" style="margin-left:6px;">Esc = Annulla</span>
+            </div>
+          </div>
+          <div style="display:flex;align-items:center;">
+            <img src="imgs/nuovo-frontend-pannelli-ordini-clienti.png" alt="Cross-panel" style="max-width:100%;max-height:38vh;border-radius:8px;">
+          </div>
+        </div>
+      </div>
+    </div>
+    <span class="slide-number">10 / 16</span>
+  </section>
+
+  <!-- ==================== SLIDE 11 — PERMESSI ==================== -->
+  <section class="slide" data-index="10">
+    <div class="slide-inner">
+      <div class="slide-header">
+        <i class="fas fa-user-shield"></i>
+        <h2>Sistema di Permessi e Autenticazione</h2>
+      </div>
+      <div class="content-area">
+        <div class="grid-2">
+          <div>
+            <h3 style="font-size:0.95rem;margin-bottom:8px;color:var(--primary);">Tre livelli di verifica</h3>
+            <ul class="bullet-list" style="gap:10px;">
+              <li><i class="fas fa-cube"></i> <strong>Componente</strong> — Visibilità pulsanti e sezioni</li>
+              <li><i class="fas fa-hook"></i> <strong>Hook</strong> — Verifica prima di eseguire operazioni</li>
+              <li><i class="fas fa-engine"></i> <strong>Engine</strong> — Controllo centralizzato policy</li>
+            </ul>
+            <div style="margin-top:14px;padding:12px;background:#e8f5e9;border-radius:8px;border-left:3px solid #2e7d32;">
+              <i class="fas fa-check-circle" style="color:#2e7d32;"></i>
+              <span style="font-size:0.9rem;">Login + OTP opzionale · Gruppi Admin/Staff · Risorse granulari</span>
+            </div>
+          </div>
+          <div style="display:flex;align-items:center;">
+            <img src="imgs/nuovo-frontend-pannelli-utente-permessi.png" alt="Permessi" style="max-width:100%;max-height:38vh;border-radius:8px;">
+          </div>
+        </div>
+      </div>
+    </div>
+    <span class="slide-number">11 / 16</span>
+  </section>
+
+  <!-- ==================== SLIDE 12 — RISULTATI ==================== -->
+  <section class="slide" data-index="11">
+    <div class="slide-inner">
+      <div class="slide-header">
+        <i class="fas fa-chart-line"></i>
+        <h2>Risultati Raggiunti</h2>
+      </div>
+      <div class="content-area">
+        <div class="grid-2">
+          <div>
+            <ul class="bullet-list" style="gap:12px;">
+              <li><i class="fas fa-layer-group"></i> <strong>50+ pannelli</strong> funzionanti CRUD completi</li>
+              <li><i class="fas fa-file-code"></i> <strong>35.000 righe</strong> di codice frontend in 3 mesi</li>
+              <li><i class="fas fa-cubes"></i> Architettura basata su <strong>3 componenti generici</strong></li>
+              <li><i class="fas fa-industry"></i> Pattern Factory per API CRUD automatiche</li>
+              <li><i class="fas fa-comments"></i> Comunicazione cross-pannello via cache</li>
+              <li><i class="fas fa-language"></i> Multilingua IT/EN con switch real-time</li>
+              <li><i class="fas fa-sun"></i> Tema chiaro e scuro persistito</li>
+            </ul>
+          </div>
+          <div style="display:flex;flex-direction:column;align-items:center;">
+            <img src="imgs/commits.png" alt="GitHub stats" style="max-width:100%;max-height:32vh;border-radius:8px;">
+            <p style="font-size:0.8rem;color:#999;margin-top:6px;">Statistiche GitHub — 3 mesi di sviluppo</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <span class="slide-number">12 / 16</span>
+  </section>
+
+  <!-- ==================== SLIDE 13 — CRITICITÀ ==================== -->
+  <section class="slide" data-index="12">
+    <div class="slide-inner">
+      <div class="slide-header">
+        <i class="fas fa-triangle-exclamation"></i>
+        <h2>Criticità Riscontrate</h2>
+      </div>
+      <div class="content-area">
+        <div class="grid-2">
+          <div class="grid-card">
+            <div class="card-icon"><i class="fas fa-clipboard-question"></i></div>
+            <h4>Requisiti non chiari</h4>
+            <p>Nessuna specifica tecnica — funzionalità scoperte giorno per giorno dal software legacy</p>
+          </div>
+          <div class="grid-card">
+            <div class="card-icon"><i class="fas fa-plug"></i></div>
+            <h4>Coordinamento Backend</h4>
+            <p>API non sempre testate — formato dati variabile, correzioni last-minute</p>
+          </div>
+          <div class="grid-card">
+            <div class="card-icon"><i class="fas fa-industry"></i></div>
+            <h4>Complessità di dominio</h4>
+            <p>Processi conciari complessi: lotti, fasi concia, logistica pelli</p>
+          </div>
+          <div class="grid-card">
+            <div class="card-icon"><i class="fas fa-sitemap"></i></div>
+            <h4>Sfide tecniche</h4>
+            <p>Stato isolato per pannello, sincronizzazione cache, shortcut multi-pannello</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <span class="slide-number">13 / 16</span>
+  </section>
+
+  <!-- ==================== SLIDE 14 — SVILUPPI FUTURI ==================== -->
+  <section class="slide" data-index="13">
+    <div class="slide-inner">
+      <div class="slide-header">
+        <i class="fas fa-lightbulb"></i>
+        <h2>Sviluppi Futuri</h2>
+      </div>
+      <div class="content-area">
+        <div class="grid-4">
+          <div class="grid-card" style="text-align:center;">
+            <div class="card-icon"><i class="fas fa-vial"></i></div>
+            <h4>Test Automatici</h4>
+            <p>Unit, integration, E2E per robustezza</p>
+          </div>
+          <div class="grid-card" style="text-align:center;">
+            <div class="card-icon"><i class="fas fa-robot"></i></div>
+            <h4>AI Assistant</h4>
+            <p>Chat basata su AI per CRUD in linguaggio naturale</p>
+          </div>
+          <div class="grid-card" style="text-align:center;">
+            <div class="card-icon"><i class="fas fa-gauge-high"></i></div>
+            <h4>Performance</h4>
+            <p>Virtual scrolling, lazy loading, query ottimizzate</p>
+          </div>
+          <div class="grid-card" style="text-align:center;">
+            <div class="card-icon"><i class="fas fa-sliders"></i></div>
+            <h4>Personalizzazione</h4>
+            <p>Layout salvabili, dashboard con widget</p>
+          </div>
+        </div>
+        <div class="grid-4" style="margin-top:12px;">
+          <div class="grid-card" style="text-align:center;">
+            <div class="card-icon"><i class="fas fa-chart-pie"></i></div>
+            <h4>Reportistica</h4>
+            <p>Dashboard analitiche avanzate</p>
+          </div>
+          <div class="grid-card" style="text-align:center;">
+            <div class="card-icon"><i class="fas fa-cart-shopping"></i></div>
+            <h4>E-commerce</h4>
+            <p>Integrazione vendita diretta prodotti</p>
+          </div>
+          <div class="grid-card" style="text-align:center;">
+            <div class="card-icon"><i class="fas fa-book"></i></div>
+            <h4>Contabilità</h4>
+            <p>Modulo contabile integrato</p>
+          </div>
+          <div class="grid-card" style="text-align:center;">
+            <div class="card-icon"><i class="fas fa-mobile-screen"></i></div>
+            <h4>Mobile</h4>
+            <p>App nativa o PWA per operatori</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <span class="slide-number">14 / 16</span>
+  </section>
+
+  <!-- ==================== SLIDE 15 — CONCLUSIONI ==================== -->
+  <section class="slide" data-index="14">
+    <div class="slide-inner">
+      <div class="slide-header">
+        <i class="fas fa-flag-checkered"></i>
+        <h2>Competenze Acquisite</h2>
+      </div>
+      <div class="content-area">
+        <div class="grid-3">
+          <div>
+            <h3 style="font-size:0.95rem;margin-bottom:8px;color:var(--primary);"><i class="fas fa-code"></i> Tecniche</h3>
+            <ul class="bullet-list" style="gap:6px;font-size:0.9rem;">
+              <li><i class="fab fa-react"></i> React 19 avanzato</li>
+              <li><i class="fas fa-file-code"></i> TypeScript strict mode</li>
+              <li><i class="fas fa-database"></i> TanStack Query + Zustand</li>
+              <li><i class="fas fa-palette"></i> MUI 7 temi personalizzati</li>
+              <li><i class="fas fa-table-cells-large"></i> Dockview modulare</li>
+              <li><i class="fas fa-wpforms"></i> react-hook-form</li>
+              <li><i class="fas fa-language"></i> i18next</li>
+            </ul>
+          </div>
+          <div>
+            <h3 style="font-size:0.95rem;margin-bottom:8px;color:var(--primary);"><i class="fas fa-diagram-project"></i> Metodologiche</h3>
+            <ul class="bullet-list" style="gap:6px;font-size:0.9rem;">
+              <li><i class="fas fa-cubes"></i> Architetture modulari</li>
+              <li><i class="fas fa-industry"></i> Pattern Factory Method</li>
+              <li><i class="fas fa-puzzle-piece"></i> Feature-sliced design</li>
+              <li><i class="fas fa-comments"></i> Coordinamento team ridotto</li>
+              <li><i class="fas fa-code-branch"></i> Git workflow</li>
+            </ul>
+          </div>
+          <div>
+            <h3 style="font-size:0.95rem;margin-bottom:8px;color:var(--primary);"><i class="fas fa-people-group"></i> Soft Skill</h3>
+            <ul class="bullet-list" style="gap:6px;font-size:0.9rem;">
+              <li><i class="fas fa-lightbulb"></i> Autonomia decisionale</li>
+              <li><i class="fas fa-wrench"></i> Problem-solving su requisiti aperti</li>
+              <li><i class="fas fa-comments"></i> Comunicazione stakeholder</li>
+              <li><i class="fas fa-clock"></i> Gestione priorità reali</li>
+            </ul>
+          </div>
+        </div>
+        <div style="margin-top:12px;padding:10px 16px;background:#e8eaf6;border-radius:8px;text-align:center;font-size:0.9rem;color:var(--primary-dark);">
+          <i class="fas fa-quote-left" style="margin-right:6px;opacity:0.6;"></i>
+          Un progetto reale, utilizzato da utenti reali, che ha sostituito un sistema obsoleto con una soluzione moderna
+          <i class="fas fa-quote-right" style="margin-left:6px;opacity:0.6;"></i>
+        </div>
+      </div>
+    </div>
+    <span class="slide-number">15 / 16</span>
+  </section>
+
+  <!-- ==================== SLIDE 16 — THANKS ==================== -->
+  <section class="slide slide-thanks" data-index="15">
+    <div class="slide-inner">
+      <div class="thanks-icon"><i class="fas fa-handshake"></i></div>
+      <h1>Grazie per l'attenzione</h1>
+      <p>Domande?</p>
+      <div style="margin-top:30px;display:flex;gap:24px;flex-wrap:wrap;justify-content:center;font-size:0.9rem;opacity:0.7;">
+        <span><i class="fas fa-user"></i> Federico Panarotto</span>
+        <span><i class="fas fa-code"></i> Web Developer Full Stack</span>
+        <span><i class="fas fa-graduation-cap"></i> ITS Digital Academy Mario Volpato</span>
+      </div>
+    </div>
+    <span class="slide-number">16 / 16</span>
+  </section>
+
+</div>
+
+<!-- ===== NAVIGATION ===== -->
+<button class="nav-arrow prev" id="prevBtn" aria-label="Precedente"><i class="fas fa-chevron-left"></i></button>
+<button class="nav-arrow next" id="nextBtn" aria-label="Successiva"><i class="fas fa-chevron-right"></i></button>
+<div class="nav-dots" id="navDots"></div>
+
+<script>
+(function() {
+  const slides = document.querySelectorAll('.slide');
+  const total = slides.length;
+  let current = 0;
+  const prevBtn = document.getElementById('prevBtn');
+  const nextBtn = document.getElementById('nextBtn');
+  const progressBar = document.getElementById('progressBar');
+  const dotsContainer = document.getElementById('navDots');
+
+  for (let i = 0; i < total; i++) {
+    const dot = document.createElement('button');
+    dot.className = 'dot' + (i === 0 ? ' active' : '');
+    dot.dataset.index = i;
+    dot.addEventListener('click', () => goTo(i));
+    dotsContainer.appendChild(dot);
+  }
+
+  function goTo(index) {
+    if (index < 0 || index >= total) return;
+    slides.forEach(s => s.classList.remove('active'));
+    slides[index].classList.add('active');
+    current = index;
+    document.querySelectorAll('.dot').forEach(d => d.classList.remove('active'));
+    document.querySelectorAll('.dot')[index].classList.add('active');
+    progressBar.style.width = ((index + 1) / total * 100) + '%';
+  }
+
+  prevBtn.addEventListener('click', () => goTo(current - 1));
+  nextBtn.addEventListener('click', () => goTo(current + 1));
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') goTo(current - 1);
+    if (e.key === 'ArrowRight' || e.key === 'ArrowDown' || e.key === ' ') { e.preventDefault(); goTo(current + 1); }
+    if (e.key === 'Home') goTo(0);
+    if (e.key === 'End') goTo(total - 1);
+  });
+
+  progressBar.style.width = ((1) / total * 100) + '%';
+})();
+</script>
+
+</body>
+</html>
