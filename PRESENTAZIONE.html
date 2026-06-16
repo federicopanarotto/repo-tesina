@@ -481,6 +481,24 @@ img {
   transition: width 0.4s ease;
 }
 
+.slide-logo {
+  position: fixed;
+  bottom: 14px;
+  left: 20px;
+  z-index: 150;
+  opacity: 0.35;
+  transition: opacity 0.3s;
+}
+
+.slide-logo:hover {
+  opacity: 0.7;
+}
+
+.slide-logo img {
+  height: 26px;
+  width: auto;
+}
+
 /* === PRINT STYLES === */
 @media print {
   @page {
@@ -512,7 +530,7 @@ img {
     left: auto !important;
   }
 
-  .nav-arrow, .nav-dots, .progress-bar {
+  .nav-arrow, .nav-dots, .progress-bar, .slide-logo {
     display: none !important;
   }
 
@@ -559,6 +577,10 @@ img {
 <body>
 
 <div class="progress-bar" id="progressBar"></div>
+
+<div class="slide-logo">
+  <img src="imgs/loghi-its.jpg" alt="ITS Digital Academy">
+</div>
 
 <div class="slides-container" id="slidesContainer">
 
