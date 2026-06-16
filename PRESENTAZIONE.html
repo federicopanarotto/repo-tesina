@@ -183,6 +183,35 @@ body {
   opacity: 0.8;
 }
 
+.slide-cover .cover-details {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin: 18px 0 14px;
+  max-width: 700px;
+}
+
+.slide-cover .cover-detail-row {
+  display: flex;
+  gap: 10px;
+  font-size: 0.85rem;
+  line-height: 1.4;
+  text-align: left;
+}
+
+.slide-cover .cover-detail-label {
+  font-weight: 700;
+  opacity: 0.85;
+  white-space: nowrap;
+  min-width: 155px;
+  text-align: right;
+}
+
+.slide-cover .cover-detail-value {
+  opacity: 0.75;
+  font-weight: 400;
+}
+
 /* === THANKS SLIDE === */
 .slide-thanks {
   background: linear-gradient(135deg, #0d47a1 0%, #1565c0 40%, #1976d2 100%);
@@ -538,11 +567,31 @@ img {
     <div class="slide-inner">
       <div class="cover-badge"><i class="fas fa-graduation-cap" style="margin-right:8px;"></i> Project Work — Biennio 2024/2026</div>
       <h1>Sviluppo Software Gestionale<br>Conceria a Pannelli Modulari</h1>
-      <p class="cover-sub">Frontend React &bull; TypeScript &bull; Dockview &bull; MUI 7</p>
+      <div class="cover-details">
+        <div class="cover-detail-row">
+          <span class="cover-detail-label">Codice Corso</span>
+          <span class="cover-detail-value">7346-0005-803-2024</span>
+        </div>
+        <div class="cover-detail-row">
+          <span class="cover-detail-label">Area Tecnologica</span>
+          <span class="cover-detail-value">Tecnologie dell'informazione, della comunicazione e dei dati</span>
+        </div>
+        <div class="cover-detail-row">
+          <span class="cover-detail-label">Ambito</span>
+          <span class="cover-detail-value">6.1 Metodi e tecnologie per lo sviluppo di sistemi software</span>
+        </div>
+        <div class="cover-detail-row">
+          <span class="cover-detail-label">Figura Professionale</span>
+          <span class="cover-detail-value">Tecnico Superiore per i Metodi e le Tecnologie per lo Sviluppo di Sistemi Software</span>
+        </div>
+        <div class="cover-detail-row">
+          <span class="cover-detail-label">Titolo Percorso</span>
+          <span class="cover-detail-value">Web Developer Full Stack (Vicenza)</span>
+        </div>
+      </div>
       <div class="cover-divider"></div>
       <div class="cover-info">
         <span class="cover-info-item"><i class="fas fa-user"></i> Federico Panarotto</span>
-        <span class="cover-info-item"><i class="fas fa-code"></i> Web Developer Full Stack</span>
         <span class="cover-info-item"><i class="fas fa-building"></i> NetEvolution — Arzignano (VI)</span>
       </div>
       <div class="cover-logo">
