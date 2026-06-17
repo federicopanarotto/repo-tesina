@@ -454,9 +454,15 @@ img {
   position: fixed;
   bottom: 0;
   left: 0;
+  width: 100%;
   height: 10px;
-  background: var(--primary);
+  background: rgba(0,0,0,0.08);
   z-index: 200;
+}
+
+.progress-bar-fill {
+  height: 100%;
+  background: var(--primary);
   transition: width 0.4s ease;
 }
 
@@ -591,7 +597,7 @@ img { cursor: pointer; }
 </head>
 <body>
 
-<div class="progress-bar" id="progressBar"></div>
+<div class="progress-bar" id="progressBar"><div class="progress-bar-fill" id="progressBarFill"></div></div>
 
 <div class="slide-logo">
   <img src="imgs/logo-ITS-digital-accademy.png" alt="ITS Digital Academy">
@@ -1202,14 +1208,14 @@ img { cursor: pointer; }
   let current = 0;
   const prevBtn = document.getElementById('prevBtn');
   const nextBtn = document.getElementById('nextBtn');
-  const progressBar = document.getElementById('progressBar');
+  const progressBarFill = document.getElementById('progressBarFill');
 
   function goTo(index) {
     if (index < 0 || index >= total) return;
     slides.forEach(s => s.classList.remove('active'));
     slides[index].classList.add('active');
     current = index;
-    progressBar.style.width = ((index + 1) / total * 100) + '%';
+    progressBarFill.style.width = ((index + 1) / total * 100) + '%';
   }
 
   prevBtn.addEventListener('click', () => goTo(current - 1));
@@ -1222,7 +1228,7 @@ img { cursor: pointer; }
     if (e.key === 'End') goTo(total - 1);
   });
 
-  progressBar.style.width = ((1) / total * 100) + '%';
+  progressBarFill.style.width = ((1) / total * 100) + '%';
 
   // === LIGHTBOX ===
   const lightbox = document.getElementById('lightbox');
