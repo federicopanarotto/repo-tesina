@@ -1250,6 +1250,17 @@ img { cursor: pointer; }
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') lightbox.classList.remove('open');
   });
+
+  // === AUTO-HIDE CURSOR ===
+  let cursorTimer;
+  document.body.style.cursor = 'none';
+  document.addEventListener('mousemove', () => {
+    document.body.style.cursor = '';
+    clearTimeout(cursorTimer);
+    cursorTimer = setTimeout(() => {
+      document.body.style.cursor = 'none';
+    }, 2000);
+  });
 })();
 </script>
 
