@@ -505,9 +505,9 @@ img {
   position: fixed;
   inset: 0;
   z-index: 9999;
-  background: transparent;
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
+  background: rgba(0,0,0,0.55);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -530,8 +530,6 @@ img {
   border-radius: 4px;
   box-shadow: 0 8px 40px rgba(0,0,0,0.5);
   cursor: default;
-  background: #fff;
-  padding: 4px;
 }
 
 img { cursor: pointer; }
