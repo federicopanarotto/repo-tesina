@@ -110,12 +110,12 @@ body {
 .slide-cover {
   background: #347b85;
   color: #fff;
-  text-align: center;
+  text-align: left;
   padding: 5vh 10vw;
 }
 
 .slide-cover .slide-inner {
-  align-items: center;
+  align-items: flex-start;
 }
 
 .slide-cover h1 {
@@ -137,16 +137,13 @@ body {
   width: 80px;
   height: 3px;
   background: var(--accent);
-  margin: 0 auto 30px;
+  margin: 24px 0 32px;
   border-radius: 2px;
 }
 
 .slide-cover .cover-logo {
   margin-top: 35px;
-}
-
-.slide-cover .cover-logo {
-  margin-top: 35px;
+  align-self: center;
 }
 
 .slide-cover .cover-logo img {
@@ -161,14 +158,14 @@ body {
 .slide-cover .cover-highlight-col {
   display: flex;
   flex-direction: column;
-  gap: 12px;
-  margin: 20px 0 18px;
+  gap: 18px;
+  margin: 28px 0 24px;
 }
 
 .slide-cover .cover-highlight-item {
   display: flex;
   flex-direction: column;
-  gap: 2px;
+  gap: 4px;
 }
 
 .slide-cover .cover-label {
@@ -187,16 +184,16 @@ body {
 .slide-cover .cover-details-row {
   display: flex;
   flex-wrap: wrap;
-  gap: 18px;
-  justify-content: center;
-  margin-bottom: 6px;
+  gap: 28px;
+  justify-content: flex-start;
+  margin-bottom: 10px;
 }
 
 .slide-cover .cover-detail-item {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  gap: 2px;
+  align-items: flex-start;
+  gap: 4px;
   min-width: 160px;
   max-width: 240px;
 }
