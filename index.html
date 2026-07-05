@@ -112,6 +112,21 @@ body {
   color: #fff;
   text-align: left;
   padding: 5vh 10vw;
+  position: relative;
+}
+
+.cover-side-logo {
+  position: absolute;
+  left: 1.5vw;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 200px;
+}
+
+.cover-side-logo img {
+  height: 100%;
+  width: auto;
+  opacity: 0.9;
 }
 
 .slide-cover .slide-inner {
@@ -593,6 +608,9 @@ img { cursor: pointer; }
 
   <!-- ==================== SLIDE 1 — COVER ==================== -->
   <section class="slide slide-cover active" data-index="0">
+    <div class="cover-side-logo">
+      <img src="imgs/logo-main.png" alt="Logo">
+    </div>
     <div class="slide-inner">
       <h1>Sviluppo Software Gestionale<br>Conceria a Pannelli Modulari</h1>
       <div class="cover-highlight-col">
