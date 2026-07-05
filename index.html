@@ -9,10 +9,10 @@
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 :root {
-  --primary: #0d47a1;
-  --primary-light: #1565c0;
-  --primary-dark: #0a3a7a;
-  --accent: #42a5f5;
+  --primary: #347b85;
+  --primary-light: #4a9da8;
+  --primary-dark: #285e66;
+  --accent: #ffc107;
   --bg: #f0f2f5;
   --slide-bg: #ffffff;
   --text: #1a1a1a;
@@ -85,7 +85,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: #e8eaf6;
+  background: #d4ecee;
   border-radius: 12px;
 }
 
@@ -108,10 +108,15 @@ body {
 
 /* === COVER SLIDE === */
 .slide-cover {
-  background: linear-gradient(135deg, #0d47a1 0%, #1565c0 40%, #1976d2 100%);
+  background: #347b85;
   color: #fff;
   text-align: center;
   padding: 5vh 10vw;
+}
+
+.slide-cover .cover-highlight {
+  color: #ffc107;
+  font-weight: 700;
 }
 
 .slide-cover .slide-inner {
@@ -222,7 +227,7 @@ body {
 
 /* === THANKS SLIDE === */
 .slide-thanks {
-  background: linear-gradient(135deg, #0d47a1 0%, #1565c0 40%, #1976d2 100%);
+  background: #347b85;
   color: #fff;
   text-align: center;
 }
@@ -342,7 +347,7 @@ body {
 }
 
 .slide-table th {
-  background: #e8eaf6;
+  background: #d4ecee;
   color: var(--primary-dark);
   font-weight: 700;
   padding: 16px 22px;
@@ -407,7 +412,7 @@ img {
 /* === TAG === */
 .tag {
   display: inline-block;
-  background: #e8eaf6;
+  background: #d4ecee;
   color: var(--primary-dark);
   font-size: 1.15rem;
   font-weight: 600;
@@ -422,7 +427,7 @@ img {
   top: 50%;
   transform: translateY(-50%);
   z-index: 100;
-  background: rgba(13,71,161,0.9);
+  background: rgba(52,123,133,0.9);
   color: #fff;
   border: none;
   width: 52px;
@@ -611,7 +616,7 @@ img { cursor: pointer; }
     <div class="slide-inner">
       <div class="cover-badge"><i class="fas fa-graduation-cap" style="margin-right:8px;"></i> Project Work — Biennio 2024/2026</div>
       <h1>Sviluppo Software Gestionale<br>Conceria a Pannelli Modulari</h1>
-      <p style="font-size:1.5rem;font-weight:700;opacity:0.95;margin:10px 0 18px;letter-spacing:1px;">Studente Federico Panarotto</p>
+      <p class="cover-highlight" style="font-size:1.6rem;margin:10px 0 6px;letter-spacing:1px;">Studente Federico Panarotto</p>
       <div class="cover-details">
         <div class="cover-detail-row">
           <span class="cover-detail-label">Area Tecnologica</span>
@@ -627,7 +632,7 @@ img { cursor: pointer; }
         </div>
         <div class="cover-detail-row">
           <span class="cover-detail-label">Titolo Percorso</span>
-          <span class="cover-detail-value">Web Developer Full Stack (Vicenza)</span>
+          <span class="cover-detail-value cover-highlight">Web Developer Full Stack (Vicenza)</span>
         </div>
         <div class="cover-detail-row">
           <span class="cover-detail-label">Codice Corso</span>
@@ -658,7 +663,7 @@ img { cursor: pointer; }
             <p style="font-size:1.55rem;line-height:1.6;">
               L'azienda opera nel settore delle tecnologie digitali offrendo servizi che spaziano dalla progettazione e realizzazione di applicazioni web su misura alla consulenza in ambito marketing digitale.
             </p>
-            <div style="margin-top:24px;padding:18px 24px;background:#e8eaf6;border-radius:8px;font-size:1.35rem;color:var(--primary-dark);">
+            <div style="margin-top:24px;padding:18px 24px;background:#d4ecee;border-radius:8px;font-size:1.35rem;color:var(--primary-dark);">
               <i class="fas fa-users" style="margin-right:8px;"></i> Team giovane e dinamico — assenza di figure senior — ampia autonomia decisionale
             </div>
           </div>
@@ -907,7 +912,7 @@ img { cursor: pointer; }
         <div class="grid-2">
           <div>
             <p style="font-size:1.5rem;margin-bottom:16px;">
-              <code style="background:#e8eaf6;padding:4px 12px;border-radius:4px;font-weight:700;">createPanelApiFactory</code>
+              <code style="background:#d4ecee;padding:4px 12px;border-radius:4px;font-weight:700;">createPanelApiFactory</code>
               genera automaticamente 5 hook CRUD:
             </p>
             <ul class="bullet-list" style="gap:12px;">
@@ -1024,6 +1029,10 @@ img { cursor: pointer; }
       <div class="slide-header">
         <i class="fas fa-chart-line"></i>
         <h2>Risultati Raggiunti</h2>
+    <div class="slide-inner">
+      <div class="slide-header">
+        <i class="fas fa-chart-line"></i>
+        <h2>Risultati Raggiunti</h2>
       </div>
       <div class="content-area">
         <div class="grid-2">
@@ -1045,11 +1054,11 @@ img { cursor: pointer; }
         </div>
       </div>
     </div>
-    <span class="slide-number">12 / 17</span>
+    <span class="slide-number">13 / 17</span>
   </section>
 
-  <!-- ==================== SLIDE 13 — CRITICITÀ ==================== -->
-  <section class="slide" data-index="12">
+  <!-- ==================== SLIDE 14 — CRITICITÀ ==================== -->
+  <section class="slide" data-index="13">
     <div class="slide-inner">
       <div class="slide-header">
         <i class="fas fa-triangle-exclamation"></i>
@@ -1166,7 +1175,7 @@ img { cursor: pointer; }
             </ul>
           </div>
         </div>
-        <div style="margin-top:20px;padding:16px 24px;background:#e8eaf6;border-radius:8px;text-align:center;font-size:1.3rem;color:var(--primary-dark);">
+        <div style="margin-top:20px;padding:16px 24px;background:#d4ecee;border-radius:8px;text-align:center;font-size:1.3rem;color:var(--primary-dark);">
           <i class="fas fa-quote-left" style="margin-right:6px;opacity:0.6;"></i>
           Un progetto reale, utilizzato da utenti reali, che ha sostituito un sistema obsoleto con una soluzione moderna
           <i class="fas fa-quote-right" style="margin-left:6px;opacity:0.6;"></i>
