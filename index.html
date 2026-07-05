@@ -466,6 +466,28 @@ img {
   transition: width 0.4s ease;
 }
 
+.slide-logo {
+  position: fixed;
+  bottom: 14px;
+  left: 20px;
+  z-index: 150;
+  opacity: 0.9;
+  transition: opacity 0.3s;
+}
+
+.slide-logo:hover {
+  opacity: 0.7;
+}
+
+.slide-logo img {
+  height: 34px;
+  width: auto;
+}
+
+body:has(.slide-cover.active) .slide-logo {
+  display: none;
+}
+
 /* === LIGHTBOX === */
 .lightbox {
   position: fixed;
@@ -531,7 +553,7 @@ img { cursor: pointer; }
     left: auto !important;
   }
 
-  .nav-arrow, .progress-bar {
+  .nav-arrow, .progress-bar, .slide-logo {
     display: none !important;
   }
 
@@ -580,6 +602,10 @@ img { cursor: pointer; }
 <body>
 
 <div class="progress-bar" id="progressBar"><div class="progress-bar-fill" id="progressBarFill"></div></div>
+
+<div class="slide-logo">
+  <img src="imgs/logo-ITS-digital-accademy.png" alt="ITS Digital Academy">
+</div>
 
 <div class="slides-container" id="slidesContainer">
 
