@@ -114,26 +114,8 @@ body {
   padding: 5vh 10vw;
 }
 
-.slide-cover .cover-highlight {
-  color: #ffc107;
-  font-weight: 700;
-}
-
 .slide-cover .slide-inner {
   align-items: center;
-}
-
-.slide-cover .cover-badge {
-  display: inline-block;
-  background: rgba(255,255,255,0.15);
-  padding: 12px 36px;
-  border-radius: 30px;
-  font-size: 1.2rem;
-  font-weight: 600;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  margin-bottom: 40px;
-  backdrop-filter: blur(4px);
 }
 
 .slide-cover h1 {
@@ -159,26 +141,6 @@ body {
   border-radius: 2px;
 }
 
-.slide-cover .cover-info {
-  display: flex;
-  gap: 40px;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-
-.slide-cover .cover-info-item {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  font-size: 1.2rem;
-  opacity: 0.9;
-}
-
-.slide-cover .cover-info-item i {
-  font-size: 1.4rem;
-  opacity: 0.7;
-}
-
 .slide-cover .cover-logo {
   margin-top: 35px;
 }
@@ -196,33 +158,54 @@ body {
   background: #fff;
 }
 
-.slide-cover .cover-details {
+.slide-cover .cover-highlight-col {
   display: flex;
   flex-direction: column;
-  gap: 8px;
-  margin: 20px 0 16px;
-  max-width: 900px;
+  gap: 12px;
+  margin: 20px 0 18px;
 }
 
-.slide-cover .cover-detail-row {
+.slide-cover .cover-highlight-item {
   display: flex;
-  gap: 16px;
-  font-size: 1.25rem;
-  line-height: 1.5;
-  text-align: left;
+  flex-direction: column;
+  gap: 2px;
 }
 
-.slide-cover .cover-detail-label {
-  font-weight: 700;
-  opacity: 0.85;
-  white-space: nowrap;
-  min-width: 220px;
-  text-align: right;
-}
-
-.slide-cover .cover-detail-value {
+.slide-cover .cover-label {
+  font-size: 0.9rem;
   opacity: 0.75;
-  font-weight: 400;
+  color: #fff;
+  font-weight: 600;
+}
+
+.slide-cover .cover-highlight-value {
+  color: #ffc107;
+  font-size: 1.4rem;
+  font-weight: 800;
+}
+
+.slide-cover .cover-details-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px;
+  justify-content: center;
+  margin-bottom: 6px;
+}
+
+.slide-cover .cover-detail-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  min-width: 160px;
+  max-width: 240px;
+}
+
+.slide-cover .cover-value {
+  font-size: 1rem;
+  opacity: 0.85;
+  color: #fff;
+  font-weight: 500;
 }
 
 /* === THANKS SLIDE === */
@@ -615,27 +598,33 @@ img { cursor: pointer; }
   <section class="slide slide-cover active" data-index="0">
     <div class="slide-inner">
       <h1>Sviluppo Software Gestionale<br>Conceria a Pannelli Modulari</h1>
-      <p class="cover-highlight" style="font-size:1.6rem;margin:10px 0 6px;letter-spacing:1px;">Studente Federico Panarotto</p>
-      <div class="cover-details">
-        <div class="cover-detail-row">
-          <span class="cover-detail-label">Area Tecnologica</span>
-          <span class="cover-detail-value">Tecnologie dell'informazione, della comunicazione e dei dati</span>
+      <div class="cover-highlight-col">
+        <div class="cover-highlight-item">
+          <span class="cover-label">Studente</span>
+          <span class="cover-highlight-value">Federico Panarotto</span>
         </div>
-        <div class="cover-detail-row">
-          <span class="cover-detail-label">Ambito</span>
-          <span class="cover-detail-value">10.1 Architetture software e Data Management</span>
+        <div class="cover-highlight-item">
+          <span class="cover-label">Titolo Percorso</span>
+          <span class="cover-highlight-value">Web Developer Full Stack (Vicenza)</span>
         </div>
-        <div class="cover-detail-row">
-          <span class="cover-detail-label">Figura Professionale</span>
-          <span class="cover-detail-value">Tecnico Superiore per i Metodi e le Tecnologie per lo Sviluppo di Sistemi Software</span>
+      </div>
+
+      <div class="cover-details-row">
+        <div class="cover-detail-item">
+          <span class="cover-label">Area Tecnologica</span>
+          <span class="cover-value">Tecnologie dell'informazione, della comunicazione e dei dati</span>
         </div>
-        <div class="cover-detail-row">
-          <span class="cover-detail-label">Titolo Percorso</span>
-          <span class="cover-detail-value cover-highlight">Web Developer Full Stack (Vicenza)</span>
+        <div class="cover-detail-item">
+          <span class="cover-label">Ambito</span>
+          <span class="cover-value">10.1 Architetture software e Data Management</span>
         </div>
-        <div class="cover-detail-row">
-          <span class="cover-detail-label">Codice Corso</span>
-          <span class="cover-detail-value">7346-0005-803-2024</span>
+        <div class="cover-detail-item">
+          <span class="cover-label">Figura Professionale</span>
+          <span class="cover-value">Tecnico Superiore per i Metodi e le Tecnologie per lo Sviluppo di Sistemi Software</span>
+        </div>
+        <div class="cover-detail-item">
+          <span class="cover-label">Codice Corso</span>
+          <span class="cover-value">7346-0005-803-2024</span>
         </div>
       </div>
       <div style="margin:6px 0 8px;font-size:1.05rem;opacity:0.8;">Biennio 2024 — 2026</div>
