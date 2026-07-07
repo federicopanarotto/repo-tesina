@@ -35,7 +35,7 @@ body {
 }
 .cover-page .cover-esame {
   font-family: Verdana, 'Segoe UI', sans-serif;
-  font-size: 16pt;
+  font-size: 14pt;
   font-weight: 700;
   color: #0d47a1;
   letter-spacing: 4px;
@@ -62,7 +62,7 @@ body {
 }
 .cover-page .cover-title {
   font-family: Verdana, 'Segoe UI', sans-serif;
-  font-size: 24pt;
+  font-size: 14pt;
   font-weight: 700;
   color: #111;
   line-height: 1.3;
@@ -70,7 +70,7 @@ body {
 }
 .cover-page .cover-relazione {
   font-family: Verdana, 'Segoe UI', sans-serif;
-  font-size: 22pt;
+  font-size: 14pt;
   font-weight: 700;
   color: #0d47a1;
   letter-spacing: 2px;
@@ -89,7 +89,7 @@ body {
 }
 .cover-page .cover-thesis-title {
   font-family: 'Times New Roman', Times, serif;
-  font-size: 16pt;
+  font-size: 14pt;
   font-weight: 700;
   color: #1a1a1a;
   line-height: 1.4;
@@ -182,7 +182,7 @@ body {
 }
 .toc-page h1 {
   font-family: Verdana, 'Segoe UI', sans-serif;
-  font-size: 18pt;
+  font-size: 14pt;
   font-weight: 700;
   color: #0d47a1;
   border-bottom: 2px solid #0d47a1;
@@ -198,6 +198,13 @@ body {
   color: #111;
   text-decoration: none;
 }
+.toc-page .toc-item a {
+  display: flex;
+  justify-content: space-between;
+}
+.toc-page .toc-item a::after {
+  content: target-counter(attr(href), page);
+}
 .toc-page .toc-item a:hover { text-decoration: underline; }
 .toc-page .toc-sub {
   padding-left: 32px;
@@ -207,6 +214,11 @@ body {
 .toc-page .toc-sub a {
   color: #333;
   text-decoration: none;
+  display: flex;
+  justify-content: space-between;
+}
+.toc-page .toc-sub a::after {
+  content: target-counter(attr(href), page);
 }
 .toc-page .toc-sub a:hover { text-decoration: underline; }
 .toc-page a, .toc-page a:visited { color: inherit; }
@@ -222,7 +234,7 @@ body {
 }
 .chapter h1 {
   font-family: Verdana, 'Segoe UI', sans-serif;
-  font-size: 18pt;
+  font-size: 14pt;
   font-weight: 700;
   color: #0d47a1;
   margin-top: 0;
@@ -237,7 +249,7 @@ body {
 /* Sommario special (no chapter number) */
 .sommario h1 {
   font-family: Verdana, 'Segoe UI', sans-serif;
-  font-size: 18pt;
+  font-size: 14pt;
   font-weight: 700;
   color: #0d47a1;
   border-bottom: 2px solid #0d47a1;
@@ -333,6 +345,7 @@ hr { margin: 28px 0; border: none; border-top: 1px solid #ccc; }
 
 strong, b { font-weight: 700; }
 em, i { font-style: italic; }
+sup { font-size: 0.75em; line-height: 1; vertical-align: super; }
 
 blockquote {
   margin: 14px 24px;
@@ -359,7 +372,7 @@ blockquote {
     size: A4;
     margin: 2.5cm 2cm 2.5cm 2cm;
     @top-center {
-      content: "Federico Panarotto — RELAZIONE Project Work Finale — Sviluppo Gestionale Conceria";
+      content: "Federico Panarotto — Web Developer Full Stack — Sviluppo Software Gestionale Conceria a Pannelli Modulari";
       font-size: 8pt;
       font-family: Verdana, sans-serif;
       color: #999;
@@ -454,7 +467,8 @@ blockquote {
   <div class="toc-sub"><a href="#sec4-2">4.2 Competenze acquisite</a></div>
   <div class="toc-sub"><a href="#sec4-3">4.3 Prospettive future</a></div>
 
-  <div class="toc-item toc-section"><a href="#bibliografia">5. Riferimenti</a></div>
+  <div class="toc-item toc-section"><a href="#note">Note</a></div>
+  <div class="toc-item toc-section"><a href="#bibliografia">5. Riferimenti bibliografici</a></div>
   <div class="toc-logo">
     <img src="imgs/loghi-its.jpg" alt="ITS Digital Academy">
     <div class="toc-logo-text">
@@ -468,7 +482,7 @@ blockquote {
 <div class="sommario">
   <h1 id="sommario">Sommario</h1>
 
-  <p>Il presente elaborato documenta l'esperienza di tirocinio curricolare svolta presso <strong>NetEvolution</strong>, agenzia di web marketing e sviluppo software con sede ad Arzignano (VI). Durante il periodo di stage, ho partecipato attivamente alla progettazione e allo sviluppo del frontend di un software gestionale destinato a <strong>Conceria Tre Emme</strong>, un'azienda conciaria che necessitava di sostituire un applicativo legacy obsoleto con oltre vent'anni di anzianità.</p>
+  <p>Il presente elaborato documenta l'esperienza di tirocinio curricolare svolta presso NetEvolution, agenzia di web marketing e sviluppo software con sede ad Arzignano (VI). Durante il periodo di stage, ho partecipato attivamente alla progettazione e allo sviluppo del frontend di un software gestionale destinato a Conceria Tre Emme, un'azienda conciaria che necessitava di sostituire un applicativo legacy obsoleto con oltre vent'anni di anzianità.</p>
 
   <p>Il progetto ha riguardato la realizzazione di un'interfaccia utente moderna, modulare e performante, basata su un'architettura a pannelli modulari che consente agli operatori della conceria di gestire simultaneamente anagrafiche, pellami, ordini, lotti di produzione, documenti di trasporto, magazzino e analisi dati. L'intero frontend è stato sviluppato con React 19, TypeScript, Material-UI e la libreria Dockview per la gestione dei pannelli, mentre la gestione dello stato lato server è stata affidata a TanStack React Query e lo stato locale a Zustand.</p>
 
@@ -481,7 +495,7 @@ blockquote {
 
   <h2 id="sec1-1">1.1 NetEvolution</h2>
 
-  <p>NetEvolution è un'agenzia di web marketing e sviluppo software con sede ad Arzignano (VI), nel cuore del distretto conciario vicentino. L'azienda opera nel settore delle tecnologie digitali offrendo servizi che spaziano dalla progettazione e realizzazione di siti web e applicazioni web su misura, alla consulenza in ambito marketing digitale e alla gestione di piattaforme software complesse. La vicinanza geografica al distretto della concia ha favorito lo sviluppo di competenze specifiche nel settore conciario, portando l'azienda a specializzarsi nella realizzazione di software gestionali per aziende del comparto.</p>
+  <p>NetEvolution è un'agenzia di <em>web marketing</em> e sviluppo software con sede ad Arzignano (VI), nel cuore del distretto conciario vicentino. L'azienda opera nel settore delle tecnologie digitali offrendo servizi che spaziano dalla progettazione e realizzazione di <em>siti web</em> e <em>applicazioni web</em> su misura, alla consulenza in ambito marketing digitale e alla gestione di piattaforme software complesse. La vicinanza geografica al distretto della concia ha favorito lo sviluppo di competenze specifiche nel settore conciario, portando l'azienda a specializzarsi nella realizzazione di software gestionali per aziende del comparto.</p>
 
   <p>Il team di sviluppo software è caratterizzato da una composizione giovane e dinamica. Non sono presenti figure senior: questa circostanza ha favorito un ambiente di lavoro in cui ogni membro del team ha avuto ampia autonomia decisionale e progettuale. Il supervisore, assente per motivi legati al reparto commerciale, è stato molto aperto nell'accogliere le soluzioni proposte, lasciando spazio all'iniziativa personale e alla crescita professionale autonoma.</p>
 
@@ -508,7 +522,7 @@ blockquote {
   <img src="imgs/vecchio-frontend-pannello-pellami.png" alt="Vecchia interfaccia del software legacy">
   <span class="img-caption">Interfaccia del precedente software gestionale, sviluppato con logica Windows XP, caratterizzato da un'interfaccia utente datata e limitate funzionalità di interazione. Nella schermata è visibile il pannello di gestione pellami.</span>
 
-  <p>Il cliente ha quindi richiesto un software veloce, con un'interfaccia utente moderna, che non modificasse radicalmente la logica di interazione già nota agli operatori. L'obiettivo era sostituire il vecchio gestionale con una soluzione web-based, accessibile da browser, performante e con un'esperienza utente migliorata.</p>
+  <p>Il cliente ha quindi richiesto un software veloce, con un'interfaccia utente moderna, che non modificasse radicalmente la logica di interazione già nota agli operatori. L'obiettivo era sostituire il vecchio gestionale con una soluzione <em>web-based</em>, accessibile da browser, performante e con un'esperienza utente migliorata.</p>
 
   <p>Per tutta la durata dello sviluppo, ho avuto accesso al computer remoto della conceria per studiare i form dei pannelli già esistenti, in modo da replicarne la struttura e la logica operativa nella nuova interfaccia.</p>
 
@@ -518,55 +532,21 @@ blockquote {
   <img src="imgs/nuovo-fronend-pannelli-pellami-lotti.png" alt="Nuovo gestionale pannello pellami">
   <span class="img-caption">Nuova interfaccia del gestionale: pannello di gestione pellami e lotti, con tabella filtrabile e form di inserimento.</span>
 
-  <p>Il progetto si è posto i seguenti obiettivi principali:</p>
-  <ul>
-    <li>sostituire il software legacy con un'applicazione web moderna e performante;</li>
-    <li>mantenere inalterata la logica operativa per non disorientare gli utenti finali;</li>
-    <li>garantire elevati standard di sicurezza nella gestione dei dati aziendali;</li>
-    <li>fornire un'interfaccia a pannelli modulari che consentisse la gestione di tutte le aree funzionali della conceria;</li>
-    <li>realizzare un sistema di permessi granulare per la gestione degli accessi agli utenti.</li>
-  </ul>
+  <p>Il progetto si è posto i seguenti obiettivi principali: sostituire il <em>software legacy</em> con un'applicazione web moderna e performante, mantenendo inalterata la logica operativa per non disorientare gli utenti finali. È stato inoltre necessario garantire elevati standard di sicurezza nella gestione dei dati aziendali, fornire un'interfaccia a pannelli modulari che consentisse la gestione di tutte le aree funzionali della conceria e realizzare un sistema di permessi granulare per la gestione degli accessi agli utenti.</p>
 
   <h2 id="sec2-2">2.2 Target di riferimento e stakeholder</h2>
 
   <p>Il target primario del progetto è costituito dagli operatori di Conceria Tre Emme che quotidianamente utilizzano il software per svolgere le proprie mansioni: impiegati amministrativi, responsabili di produzione, magazzinieri e operatori logistici. Ogni figura professionale interagisce con moduli specifici del gestionale in base al proprio ruolo e alle proprie mansioni.</p>
 
-  <p>Gli stakeholder del progetto includono:</p>
-  <ul>
-    <li>la proprietà di Conceria Tre Emme, committente del software;</li>
-    <li>i responsabili di produzione, che necessitano di monitorare l'avanzamento dei lotti;</li>
-    <li>gli operatori amministrativi, che gestiscono anagrafiche, ordini e documenti di trasporto;</li>
-    <li>il team di sviluppo di NetEvolution, che ha progettato e realizzato la soluzione.</li>
-  </ul>
+  <p>Gli stakeholder del progetto includono la proprietà di Conceria Tre Emme in qualità di committente del software, i responsabili di produzione che necessitano di monitorare l'avanzamento dei lotti, gli operatori amministrativi che gestiscono anagrafiche, ordini e documenti di trasporto e il team di sviluppo di NetEvolution che ha progettato e realizzato la soluzione.</p>
 
   <h2 id="sec2-3">2.3 Requisiti del progetto</h2>
 
-  <p>I requisiti del progetto sono emersi sia dall'analisi del software legacy sia dal confronto con il collega, che faceva da tramite con gli operatori della conceria. Possono essere suddivisi in requisiti funzionali e non funzionali.</p>
+  <p>I requisiti del progetto sono emersi sia dall'analisi del <em>software legacy</em> sia dal confronto con il collega, che faceva da tramite con gli operatori della conceria. Possono essere suddivisi in requisiti funzionali e non funzionali.</p>
 
-  <p><strong>Requisiti funzionali:</strong></p>
-  <ul>
-    <li>gestione delle anagrafiche: contatti, fornitori, vettori, agenti, CAP, province, nazioni e porti;</li>
-    <li>gestione dei pellami: specie, origini, tipologie, pesi, spessori, scuoiatura e stadi di concia;</li>
-    <li>gestione degli articoli: tipologie, colori, classi, categorie e stampe;</li>
-    <li>gestione degli ordini cliente e delle relative righe d'ordine;</li>
-    <li>gestione dei lotti di produzione: composizione, movimenti di magazzino, costi, suddivisione e rilavorazione;</li>
-    <li>gestione dei documenti di trasporto (DDT) con relative righe;</li>
-    <li>visualizzazione del magazzino con partite e movimenti;</li>
-    <li>analisi dati: vendite, movimenti esterni, riepilogo lotti con funzionalità di stampa;</li>
-    <li>gestione degli utenti e dei permessi di accesso basati su gruppi e risorse;</li>
-    <li>autenticazione con supporto OTP (One-Time Password).</li>
-  </ul>
+  <p><strong>Requisiti funzionali:</strong> Il software doveva offrire la gestione delle anagrafiche, includendo contatti, fornitori, vettori, agenti e dati territoriali come CAP, province, nazioni e porti. Per il settore produttivo era necessaria la gestione dei pellami con specie, origini, tipologie, pesi, spessori, scuoiatura e stadi di concia, affiancata dalla gestione degli articoli con tipologie, colori, classi, categorie e stampe. Sul fronte commerciale, il sistema doveva supportare la gestione degli ordini cliente con le relative righe d'ordine, mentre per la produzione era indispensabile la gestione dei lotti con composizione, movimenti di magazzino, costi, suddivisione e rilavorazione. Erano inoltre richiesti la gestione dei documenti di trasporto (DDT) con le relative righe, la visualizzazione del magazzino con partite e movimenti, l'analisi dei dati di vendita e dei movimenti esterni con funzionalità di stampa, la gestione degli utenti con permessi basati su gruppi e risorse e l'autenticazione con supporto OTP (<em>One-Time Password</em>).</p>
 
-  <p><strong>Requisiti non funzionali:</strong></p>
-  <ul>
-    <li>interfaccia a pannelli modulari con possibilità di apertura simultanea di più moduli;</li>
-    <li>reattività e bassa latenza nelle operazioni di caricamento e salvataggio dati;</li>
-    <li>interfaccia utente moderna, chiara e intuitiva;</li>
-    <li>supporto multilingua (italiano e inglese);</li>
-    <li>tema chiaro e scuro personalizzabile;</li>
-    <li>scorciatoie da tastiera per le operazioni frequenti (creazione, modifica, salvataggio, annullamento);</li>
-    <li>sicurezza dei dati con autenticazione robusta.</li>
-  </ul>
+  <p><strong>Requisiti non funzionali:</strong> L'applicazione doveva offrire un'interfaccia a pannelli modulari con possibilità di apertura simultanea di più moduli, garantendo reattività e bassa latenza nelle operazioni di caricamento e salvataggio dei dati. L'interfaccia utente doveva essere moderna, chiara e intuitiva, con supporto multilingua italiano e inglese, tema chiaro e scuro personalizzabile e scorciatoie da tastiera per le operazioni frequenti come creazione, modifica, salvataggio e annullamento. Infine, era richiesta la sicurezza dei dati con un sistema di autenticazione robusta.</p>
 
   <h2 id="sec2-4">2.4 Metodologie e tecnologie adottate</h2>
 
@@ -592,24 +572,19 @@ blockquote {
     <tr><td>Date</td><td>dayjs</td></tr>
   </table>
 
-  <p><strong>Stack tecnologico backend</strong> (realizzato dal collega):</p>
-  <ul>
-    <li>Symfony (PHP) come framework backend;</li>
-    <li>MySQL come database relazionale;</li>
-    <li>API RESTful con autenticazione basata su cookie JWT.</li>
-  </ul>
+  <p><strong>Stack tecnologico backend</strong> (realizzato dal collega): il backend è stato sviluppato con Symfony (PHP) come framework, MySQL come database relazionale e API <em>RESTful</em> con autenticazione basata su cookie JWT.</p>
 
   <p>La motivazione alla base della scelta di React come framework frontend risiede nella sua ampia adozione nel panorama dello sviluppo web, nella ricchezza dell'ecosistema di librerie disponibili e nella sua efficienza nel gestire interfacce utente complesse e interattive. TypeScript è stato scelto per garantire una maggiore robustezza del codice grazie al sistema di tipi statici, fondamentale in un progetto con oltre 50 pannelli e centinaia di componenti.</p>
 
-  <p>Per la gestione dell'architettura a pannelli è stata adottata la libreria <strong>Dockview</strong>. Questa libreria consente agli utenti di aprire, chiudere, spostare e organizzare i pannelli in gruppi di tab, esattamente come avviene in un ambiente desktop. La scelta è ricaduta su Dockview perché offre un'API completa e flessibile per la gestione dei pannelli, supporta pannelli flottanti (popup) e si integra perfettamente con l'ecosistema React.</p>
+  <p>Per la gestione dell'architettura a pannelli è stata adottata la libreria Dockview. Questa libreria consente agli utenti di aprire, chiudere, spostare e organizzare i pannelli in gruppi di tab, esattamente come avviene in un ambiente desktop. La scelta è ricaduta su Dockview perché offre un'API completa e flessibile per la gestione dei pannelli, supporta pannelli flottanti (<em>popup</em>) e si integra perfettamente con l'ecosistema React.</p>
 
-  <p><strong>TanStack React Query</strong> è stato utilizzato per la gestione dello stato derivante dalle chiamate API. Questa libreria offre un sistema di caching intelligente che riduce il numero di richieste al server, gestisce automaticamente il refresh dei dati e fornisce hook dichiarativi per le operazioni CRUD. Particolarmente utile è stato il meccanismo di invalidazione automatica della cache: quando un pannello esegue una creazione, modifica o eliminazione, React Query invalida automaticamente i dati correlati, garantendo che l'interfaccia rifletta sempre lo stato più aggiornato del database.</p>
+  <p>TanStack React Query è stato utilizzato per la gestione dello stato derivante dalle chiamate API. Questa libreria offre un sistema di <em>caching</em> intelligente che riduce il numero di richieste al server, gestisce automaticamente il <em>refresh</em> dei dati e fornisce <em>hook</em> dichiarativi per le operazioni CRUD. Particolarmente utile è stato il meccanismo di invalidazione automatica della cache: quando un pannello esegue una creazione, modifica o eliminazione, React Query invalida automaticamente i dati correlati, garantendo che l'interfaccia rifletta sempre lo stato più aggiornato del database.</p>
 
-  <p><strong>Zustand</strong> è stato adottato per la gestione dello stato locale dei pannelli. A differenza di React Query, che gestisce lo stato dei dati provenienti dal server, Zustand si occupa dello stato puramente UI, come lo stato dei pulsanti del form, l'ID della riga selezionata nelle tabelle, i filtri attivi. Ogni pannello ha un proprio store Zustand isolato, creato dinamicamente all'apertura del pannello stesso, consentendo a più pannelli dello stesso tipo di coesistere senza conflitti di stato.</p>
+  <p>Zustand è stato adottato per la gestione dello stato locale dei pannelli. A differenza di React Query, che gestisce lo stato dei dati provenienti dal server, Zustand si occupa dello stato puramente UI, come lo stato dei pulsanti del form, l'ID della riga selezionata nelle tabelle, i filtri attivi. Ogni pannello ha un proprio store Zustand isolato, creato dinamicamente all'apertura del pannello stesso, consentendo a più pannelli dello stesso tipo di coesistere senza conflitti di stato.</p>
 
   <h2 id="sec2-5">2.5 Architettura del frontend</h2>
 
-  <p>L'architettura del frontend è organizzata secondo il pattern <em>feature-sliced</em>, che separa il codice in moduli funzionali (feature) e librerie condivise (shared). Questa suddivisione garantisce separazione delle responsabilità, riusabilità dei componenti e facilità di manutenzione. La struttura delle directory riflette questa organizzazione.</p>
+  <p>L'architettura del frontend è organizzata secondo il pattern <em>feature-sliced</em>, che separa il codice in moduli funzionali (<em>feature</em>) e librerie condivise (<em>shared</em>). Questa suddivisione garantisce separazione delle responsabilità, riusabilità dei componenti e facilità di manutenzione. La struttura delle directory riflette questa organizzazione.</p>
 
   <p><strong>Struttura generale del progetto:</strong></p>
 
@@ -633,13 +608,7 @@ blockquote {
     helpers/              # Utility (language detection)
     interfaces/           # Interfacce condivise</pre>
 
-  <p><strong>L'architettura a pannelli modulari</strong> rappresenta il cuore dell'interfaccia. Il workspace principale è costituito da un contenitore Dockview che ospita i pannelli aperti. Ogni pannello corrisponde a una specifica entità gestionale (contatti, lotti, ordini, ecc.) ed è composto da tre componenti generici riusabili:</p>
-
-  <ul>
-    <li><strong>GenericPanel</strong>: componente contenitore che fornisce il contesto del pannello e la struttura layout (lista in alto, form in basso);</li>
-    <li><strong>GenericList</strong>: wrapper su material-react-table che visualizza i dati in una tabella con funzionalità di selezione, ordinamento e filtraggio;</li>
-    <li><strong>GenericForm</strong>: componente complesso che orchestra l'intero ciclo di vita CRUD con gestione degli stati dei pulsanti, permessi, scorciatoie da tastiera e dialoghi di conferma.</li>
-  </ul>
+  <p>L'architettura a pannelli modulari rappresenta il cuore dell'interfaccia. Il workspace principale è costituito da un contenitore Dockview che ospita i pannelli aperti. Ogni pannello corrisponde a una specifica entità gestionale (contatti, lotti, ordini, ecc.) ed è composto da tre componenti generici riusabili. Il primo è GenericPanel, un componente contenitore che fornisce il contesto del pannello e la struttura <em>layout</em> con lista in alto e form in basso. Il secondo è GenericList, un <em>wrapper</em> su <em>material-react-table</em> che visualizza i dati in una tabella con funzionalità di selezione, ordinamento e filtraggio. Il terzo è GenericForm, un componente complesso che orchestra l'intero ciclo di vita <em>CRUD</em> con gestione degli stati dei pulsanti, permessi, scorciatoie da tastiera e dialoghi di conferma.</p>
 
   <img src="imgs/architettura-pannelli-dockview.png" alt="Architettura dei pannelli dockview">
   <span class="img-caption">Schema dell'architettura a pannelli modulari con la relazione tra i tre componenti generici (GenericPanel, GenericList, GenericForm) e il flusso dei dati.</span>
@@ -647,11 +616,11 @@ blockquote {
   <img src="imgs/lista-pannelli-dockview.png" alt="Lista completa dei pannelli sviluppati">
   <span class="img-caption">Elenco completo dei pannelli dell'interfaccia, suddivisi per categoria funzionale: contatti, pellami, prodotti, ordini, produzione, DDT, magazzino, analisi e amministrazione.</span>
 
-  <p>Questa astrazione si è rivelata fondamentale per la produttività dello sviluppo. Invece di scrivere da capo la logica CRUD per ciascuno dei oltre 50 pannelli, ho definito una volta i componenti generici e poi ogni pannello specifico li ha implementati dichiarando solo le parti variabili: le colonne della tabella, i campi del form, l'endpoint API e le traduzioni. Questo approccio ha permesso di ridurre drasticamente i tempi di sviluppo e di garantire un comportamento coerente su tutta l'applicazione.</p>
+  <p>Questa astrazione si è rivelata fondamentale per la produttività dello sviluppo. Invece di scrivere da capo la logica <em>CRUD</em> per ciascuno dei oltre 50 pannelli, ho definito una volta i componenti generici e poi ogni pannello specifico li ha implementati dichiarando solo le parti variabili: le colonne della tabella, i campi del form, l'<em>endpoint</em> API e le traduzioni. Questo approccio ha permesso di ridurre drasticamente i tempi di sviluppo e di garantire un comportamento coerente su tutta l'applicazione.</p>
 
   <p><strong>Pattern Factory per le API:</strong></p>
 
-  <p>Per semplificare la definizione delle chiamate API CRUD, ho implementato il pattern Factory Method attraverso la funzione <code>createPanelApiFactory</code>. Questa factory genera automaticamente cinque hook TanStack Query per ciascun endpoint REST:</p>
+  <p>Per semplificare la definizione delle chiamate API <em>CRUD</em>, ho implementato il pattern Factory Method attraverso la funzione <code>createPanelApiFactory</code>. Questa factory genera automaticamente cinque hook TanStack Query per ciascun endpoint REST:</p>
 
   <pre>useGetList()     → GET /endpoint        (lettura lista)
 useGetDetail(id) → GET /endpoint/:id    (lettura dettaglio)
@@ -666,11 +635,11 @@ useDelete()      → DELETE /endpoint/:id (eliminazione)</pre>
     queryKey: "BATCH"
 });</code></pre>
 
-  <p>Questa factory astrae completamente la complessità della gestione delle chiamate HTTP e del caching, permettendo allo sviluppatore di concentrarsi sulla logica di business del singolo pannello.</p>
+  <p>Questa factory astrae completamente la complessità della gestione delle chiamate HTTP e del <em>caching</em>, permettendo allo sviluppatore di concentrarsi sulla logica di <em>business</em> del singolo pannello.</p>
 
   <p><strong>Gestione dello stato dei pannelli:</strong></p>
 
-  <p>Un aspetto critico dell'architettura è stata la gestione dello stato separato per ogni pannello. Poiché l'utente può aprire più pannelli contemporaneamente, anche dello stesso tipo, è fondamentale che ogni istanza mantenga il proprio stato indipendente. La soluzione adottata integra Zustand all'interno del componente <strong>GenericPanel</strong>: ogni pannello è avvolto da un proprio context React, all'interno del quale viene istanziata dinamicamente una factory di Zustand che genera uno store isolato. In questo modo si evita il problema di avere uno store globale tra più pannelli dello stesso tipo.</p>
+  <p>Un aspetto critico dell'architettura è stata la gestione dello stato separato per ogni pannello. Poiché l'utente può aprire più pannelli contemporaneamente, anche dello stesso tipo, è fondamentale che ogni istanza mantenga il proprio stato indipendente. La soluzione adottata integra Zustand all'interno del componente GenericPanel: ogni pannello è avvolto da un proprio context React, all'interno del quale viene istanziata dinamicamente una factory di Zustand che genera uno store isolato. In questo modo si evita il problema di avere uno store globale tra più pannelli dello stesso tipo.</p>
 
   <pre>Pannello Lotti #1 — context #1 → store Zustand #1 — { selectedId: 5, formEnabled: false }
 Pannello Lotti #2 — context #2 → store Zustand #2 — { selectedId: 12, formEnabled: true }
@@ -715,32 +684,17 @@ Pannello Contatti — context #3 → store Zustand #3 — { selectedId: 3, formE
   <img src="imgs/nuovo-frontend-pannelli-utente-permessi.png" alt="Pannello gestione permessi utente">
   <span class="img-caption">Interfaccia di gestione dei permessi utente: selezione di gruppi e risorse per la configurazione degli accessi.</span>
 
-  <p>Il sistema di autorizzazione opera su tre livelli: a livello di componente (visibilità dei pulsanti e delle sezioni), a livello di hook (verifica dei permessi prima di eseguire operazioni) e a livello di engine (controllo centralizzato delle policy). Questa architettura a strati garantisce che non sia possibile eludere i controlli di autorizzazione, nemmeno intervenendo direttamente sul codice frontend.</p>
+  <p>Il sistema di autorizzazione opera su tre livelli: a livello di componente (visibilità dei pulsanti e delle sezioni), a livello di <em>hook</em> (verifica dei permessi prima di eseguire operazioni) e a livello di <em>engine</em> (controllo centralizzato delle policy). Questa architettura a strati garantisce che non sia possibile eludere i controlli di autorizzazione, nemmeno intervenendo direttamente sul codice frontend.</p>
 
   <h2 id="sec2-6">2.6 Organizzazione, struttura e modalità di lavoro in team</h2>
 
   <p>Il progetto è stato sviluppato da un team di due persone: io, dedicato al frontend, e un altro collega, dedicato al backend Symfony e alla struttura del database. Il frontend è stato realizzato principalmente da me, mentre un altro collega si è occupato dell'inizializzazione del progetto e della gestione dei ruoli utente. L'architettura generale e tutti i pannelli sono stati sviluppati interamente da me. La comunicazione tra i due ruoli è stata fondamentale per il buon esito del progetto.</p>
 
-  <p><strong>Strumenti di collaborazione:</strong></p>
-  <ul>
-    <li><strong>Git</strong> per il controllo versione, con repository ospitato su GitHub;</li>
-    <li><strong>Comunicazione diretta</strong> in sede e tramite messaggistica istantanea per il coordinamento quotidiano;</li>
-    <li><strong>Accesso remoto</strong> al computer della conceria per l'analisi del software legacy.</li>
-  </ul>
+  <p><strong>Strumenti di collaborazione:</strong> Per il controllo versione è stato utilizzato Git con repository ospitato su GitHub, mentre il coordinamento quotidiano è avvenuto tramite comunicazione diretta in sede e messaggistica istantanea. È stato inoltre utilizzato l'accesso remoto al computer della conceria per l'analisi del <em>software legacy</em>.</p>
 
   <p><strong>Metodologia di lavoro:</strong></p>
 
-  <p>Il progetto è stato affrontato con un approccio iterativo. Partendo dall'analisi del software esistente, ho progressivamente costruito l'interfaccia a pannelli, aggiungendo funzionalità in modo incrementale. Il flusso di lavoro tipico prevedeva:</p>
-
-  <ol>
-    <li>analisi del pannello legacy e comprensione dei campi dati;</li>
-    <li>definizione dell'interfaccia TypeScript per l'entità;</li>
-    <li>creazione della factory API per le chiamate CRUD;</li>
-    <li>sviluppo del componente pannello con lista e form;</li>
-    <li>registrazione del pannello nel registry e aggiunta al menu;</li>
-    <li>test di integrazione con le API backend;</li>
-    <li>correzione di eventuali discrepanze e raffinamento dell'interfaccia.</li>
-  </ol>
+  <p>Il progetto è stato affrontato con un approccio iterativo. Partendo dall'analisi del software esistente, ho progressivamente costruito l'interfaccia a pannelli, aggiungendo funzionalità in modo incrementale. Il flusso di lavoro tipico prevedeva l'analisi del pannello <em>legacy</em> e la comprensione dei campi dati, seguita dalla definizione dell'interfaccia TypeScript per l'entità e dalla creazione della <em>factory</em> API per le chiamate <em>CRUD</em>. Si procedeva quindi con lo sviluppo del componente pannello comprensivo di lista e form, la registrazione del pannello nel <em>registry</em> e l'aggiunta al menu, per concludere con il test di integrazione con le API backend e la correzione di eventuali discrepanze con raffinamento dell'interfaccia.</p>
 
   <p><strong>Ruolo autonomo:</strong></p>
 
@@ -753,64 +707,40 @@ Pannello Contatti — context #3 → store Zustand #3 — { selectedId: 3, formE
 
   <h2 id="sec3-1">3.1 Risultati raggiunti</h2>
 
-  <p>Al termine del periodo di sviluppo, il frontend del gestionale conta oltre <strong>50 pannelli</strong> funzionanti, ciascuno dei quali implementa le operazioni CRUD complete per la propria entità gestionale. I pannelli sono suddivisi nelle seguenti aree funzionali:</p>
-
-  <ul>
-    <li><strong>Contatti e anagrafiche</strong> (12 pannelli): contatti, indirizzi, agenti, subappaltatori, dettagli contatto, corrieri, CAP, province, nazioni, porti;</li>
-    <li><strong>Pellami</strong> (8 pannelli): specie, origini, tipologie, pesi, spessori, scuoiatura, stadi di concia;</li>
-    <li><strong>Prodotti e articoli</strong> (10 pannelli): prodotti, articoli, categorie, tipologie, colori, classi, stampe;</li>
-    <li><strong>Ordini</strong> (4 pannelli): ordini cliente, righe d'ordine, tintura, raffinazione;</li>
-    <li><strong>Produzione</strong> (12 pannelli): lotti, composizione, dati batch, movimenti, produzione, suddivisione, rilavorazione, macchinari, processi, lavorazioni;</li>
-    <li><strong>Documenti di trasporto</strong> (4 pannelli): DDT, righe DDT, motivi di trasporto, subappalto non reso;</li>
-    <li><strong>Magazzino</strong> (3 pannelli): partite, movimenti, pallet;</li>
-    <li><strong>Commerciale</strong> (3 pannelli): cambi valute, tipologie pagamento, condizioni di spedizione;</li>
-    <li><strong>Analisi</strong> (3 pannelli): vendite, movimenti esterni, lotti;</li>
-    <li><strong>Amministrazione</strong> (4 pannelli): utenti, gruppi, ruoli, permessi per area funzionale.</li>
-  </ul>
+  <p>Al termine del periodo di sviluppo, il frontend del gestionale conta oltre 50 pannelli funzionanti, ciascuno dei quali implementa le operazioni <em>CRUD</em> complete per la propria entità gestionale. I pannelli sono suddivisi in dieci aree funzionali. L'area Contatti e anagrafiche comprende 12 pannelli dedicati a contatti, indirizzi, agenti, subappaltatori, dettagli contatto, corrieri, CAP, province, nazioni e porti. L'area Pellami conta 8 pannelli per la gestione di specie, origini, tipologie, pesi, spessori, scuoiatura e stadi di concia. Per i prodotti e articoli sono stati realizzati 10 pannelli che coprono prodotti, articoli, categorie, tipologie, colori, classi e stampe. L'area Ordini dispone di 4 pannelli per ordini cliente, righe d'ordine, tintura e raffinazione, mentre il settore Produzione, il più corposo con 12 pannelli, gestisce lotti, composizione, dati batch, movimenti, produzione, suddivisione, rilavorazione, macchinari, processi e lavorazioni. Per i Documenti di trasporto sono disponibili 4 pannelli per DDT, righe DDT, motivi di trasporto e subappalto non reso. L'area Magazzino conta 3 pannelli per partite, movimenti e pallet, mentre l'area Commerciale ne ha altrettanti per cambi valute, tipologie pagamento e condizioni di spedizione. Infine, l'area Analisi offre 3 pannelli per vendite, movimenti esterni e lotti, mentre l'Amministrazione dispone di 4 pannelli per la gestione di utenti, gruppi, ruoli e permessi per area funzionale.</p>
 
 
 
   <img src="imgs/commits.png" alt="Analisi commits GitHub">
   <span class="img-caption">Statistiche di sviluppo del progetto su GitHub: in tre mesi sono state aggiunte circa 35.000 righe di codice frontend, distribuite su oltre 50 componenti pannello.</span>
 
-  <p>Dal punto di vista del codice, il progetto ha raggiunto i seguenti risultati quantitativi:</p>
-  <ul>
-    <li>circa <strong>35.000 righe di codice</strong> frontend aggiunte in tre mesi;</li>
-    <li>oltre <strong>50 componenti pannello</strong> implementati;</li>
-    <li>architettura basata su <strong>3 componenti generici</strong> riusabili (GenericPanel, GenericList, GenericForm);</li>
-    <li><strong>pattern Factory</strong> per la generazione automatica degli hook API CRUD;</li>
-    <li>sistema di <strong>comunicazione cross-pannello</strong> tramite cache React Query;</li>
-    <li><strong>scorciatoie da tastiera</strong> complete per tutte le operazioni CRUD;</li>
-    <li>supporto <strong>multilingua</strong> italiano/inglese con switch in tempo reale;</li>
-    <li><strong>tema chiaro e scuro</strong> persistito nelle preferenze utente;</li>
-    <li><strong>sistema di permessi</strong> granulare con verifica a tre livelli (componente, hook, engine).</li>
-  </ul>
+  <p>Dal punto di vista del codice, il progetto ha raggiunto risultati quantitativi significativi. In tre mesi sono state aggiunte circa 35.000 righe di codice frontend<sup>1</sup>, distribuite su oltre 50 componenti pannello. L'architettura è basata su 3 componenti generici riusabili (GenericPanel, GenericList, GenericForm) e sul pattern <em>Factory</em> per la generazione automatica degli <em>hook</em> API. È stato implementato un sistema di comunicazione cross-pannello tramite cache React Query, scorciatoie da tastiera per tutte le operazioni <em>CRUD</em>, supporto multilingua italiano/inglese con <em>switch</em> in tempo reale e tema chiaro e scuro persistito nelle preferenze utente. Il sistema di permessi granulare opera con verifica a tre livelli: componente, <em>hook</em> ed <em>engine</em>.</p>
 
   <h2 id="sec3-2">3.2 Criticità riscontrate</h2>
 
   <p>Lo sviluppo del progetto non è stato privo di difficoltà. Le principali criticità affrontate sono state:</p>
 
-  <p><strong>Mancanza di obiettivi chiari di sviluppo.</strong> Il cliente ha fornito il software legacy con l'intenzione di replicarlo senza un'analisi preventiva strutturata. Questo ha significato che molte funzionalità sono state scoperte e implementate giorno per giorno, senza una specifica tecnica dettagliata. Ho dovuto spesso inferire il comportamento atteso dall'osservazione del vecchio software e dal confronto con il collega, che faceva da tramite con gli operatori della conceria.</p>
+  <p><strong>Mancanza di obiettivi chiari di sviluppo.</strong> Il cliente ha fornito il <em>software legacy</em> con l'intenzione di replicarlo senza un'analisi preventiva strutturata. Questo ha significato che molte funzionalità sono state scoperte e implementate giorno per giorno, senza una specifica tecnica dettagliata. Ho dovuto spesso inferire il comportamento atteso dall'osservazione del vecchio software e dal confronto con il collega, che faceva da tramite con gli operatori della conceria.</p>
 
   <p><strong>Difficoltà di coordinamento con il collega backend.</strong> Il collega responsabile del backend non testava sempre adeguatamente il codice prima che io lo utilizzassi. Questo ha comportato frequenti situazioni in cui le API restituivano dati in formato diverso da quanto concordato, o errori imprevisti che richiedevano correzioni last-minute.</p>
 
   <p><strong>Complessità nell'analisi dei processi di conceria.</strong> Il settore conciario ha processi produttivi specifici e complessi. Ho dovuto scoprire giorno per giorno il funzionamento interno dei processi gestionali della conceria: la gestione dei lotti, le fasi di concia, la composizione dei prodotti, la logistica delle pelli. Questa conoscenza di dominio è stata essenziale per progettare un'interfaccia che rispecchiasse fedelmente il flusso di lavoro degli operatori.</p>
 
-  <p><strong>Sfide tecniche specifiche.</strong> L'implementazione dell'architettura a pannelli modulari ha presentato diverse sfide tecniche: la gestione dello stato isolato per ciascun pannello, la comunicazione tra pannelli per il passaggio dei dati, la sincronizzazione della cache tra operazioni CRUD concorrenti e la gestione delle scorciatoie da tastiera nel contesto di pannelli multipli. Ogni sfida è stata risolta con soluzioni mirate che hanno arricchito il bagaglio tecnico acquisito durante il progetto.</p>
+  <p><strong>Sfide tecniche specifiche.</strong> L'implementazione dell'architettura a pannelli modulari ha presentato diverse sfide tecniche: la gestione dello stato isolato per ciascun pannello, la comunicazione tra pannelli per il passaggio dei dati, la sincronizzazione della cache tra operazioni <em>CRUD</em> concorrenti e la gestione delle scorciatoie da tastiera nel contesto di pannelli multipli. Ogni sfida è stata risolta con soluzioni mirate che hanno arricchito il bagaglio tecnico acquisito durante il progetto.</p>
 
   <h2 id="sec3-3">3.3 Possibili sviluppi futuri</h2>
 
   <p>Il progetto presenta ampi margini di miglioramento e ampliamento. Tra i possibili sviluppi futuri si possono identificare:</p>
 
-  <p><strong>Estensione dei moduli funzionali.</strong> L'architettura a pannelli modulari si presta naturalmente all'aggiunta di nuovi moduli. Potrebbero essere sviluppati moduli per la gestione della contabilità, la reportistica avanzata o l'integrazione con piattaforme di e-commerce per la vendita diretta dei prodotti.</p>
+  <p><strong>Estensione dei moduli funzionali.</strong> L'architettura a pannelli modulari si presta naturalmente all'aggiunta di nuovi moduli. Potrebbero essere sviluppati moduli per la gestione della contabilità, la reportistica avanzata o l'integrazione con piattaforme di <em>e-commerce</em> per la vendita diretta dei prodotti.</p>
 
   <p><strong>Copertura dei test automatici.</strong> Durante lo sviluppo iniziale, la priorità è stata la realizzazione delle funzionalità. Un miglioramento significativo consisterebbe nell'introduzione di test automatici (unit test, integration test, end-to-end test) per garantire la robustezza del codice e facilitare le future manutenzioni, sia lato frontend che backend.</p>
 
-  <p><strong>Miglioramento delle performance.</strong> Con l'aumentare del volume di dati gestiti, potrebbero rendersi necessari ottimizzazioni delle performance, come l'implementazione di virtual scrolling più spinto, la lazy loading dei componenti e l'ottimizzazione delle query API.</p>
+  <p><strong>Miglioramento delle performance.</strong> Con l'aumentare del volume di dati gestiti, potrebbero rendersi necessari ottimizzazioni delle performance, come l'implementazione di <em>virtual scrolling</em> più spinto, la <em>lazy loading</em> dei componenti e l'ottimizzazione delle query API.</p>
 
-  <p><strong>Personalizzazione dell'interfaccia.</strong> Sviluppi futuri potrebbero includere la possibilità per l'utente di personalizzare il layout dei pannelli, salvando le proprie configurazioni, o l'introduzione di dashboard personalizzate con widget riassuntivi.</p>
+  <p><strong>Personalizzazione dell'interfaccia.</strong> Sviluppi futuri potrebbero includere la possibilità per l'utente di personalizzare il <em>layout</em> dei pannelli, salvando le proprie configurazioni, o l'introduzione di <em>dashboard</em> personalizzate con <em>widget</em> riassuntivi.</p>
 
-  <p><strong>Integrazione di un assistente AI.</strong> Un'implementazione futura può essere l'integrazione di una chat basata su intelligenza artificiale in grado di gestire autonomamente le operazioni CRUD sui dati tramite un agente che comunica direttamente con il backend, conoscendo l'intera struttura aziendale e consentendo all'operatore di interagire con il gestionale tramite linguaggio naturale.</p>
+  <p><strong>Integrazione di un assistente AI.</strong> Un'implementazione futura può essere l'integrazione di una chat basata su intelligenza artificiale in grado di gestire autonomamente le operazioni <em>CRUD</em> sui dati tramite un agente che comunica direttamente con il backend, conoscendo l'intera struttura aziendale e consentendo all'operatore di interagire con il gestionale tramite linguaggio naturale.</p>
 </div>
 
 <!-- ===== CHAPTER 4 ===== -->
@@ -827,35 +757,11 @@ Pannello Contatti — context #3 → store Zustand #3 — { selectedId: 3, formE
 
   <p>Durante il progetto ho consolidato e ampliato le mie competenze in diverse aree:</p>
 
-  <p><strong>Competenze tecniche:</strong></p>
-  <ul>
-    <li>padronanza avanzata di <strong>React 19</strong> e dell'ecosistema React (hooks, context, componenti funzionali);</li>
-    <li>utilizzo professionale di <strong>TypeScript</strong> con configurazione strict mode;</li>
-    <li>gestione dello stato con <strong>TanStack React Query</strong> e <strong>Zustand</strong>;</li>
-    <li>progettazione di interfacce con <strong>Material-UI</strong> e personalizzazione dei temi;</li>
-    <li>implementazione di architetture a <strong>pannelli modulari</strong> con Dockview;</li>
-    <li>utilizzo di <strong>react-hook-form</strong> per la gestione di form complessi;</li>
-    <li>configurazione di build toolchain con <strong>Vite</strong>;</li>
-    <li>gestione delle traduzioni con <strong>i18next</strong>;</li>
-    <li>controllo versione con <strong>Git</strong> e workflow collaborativo.</li>
-  </ul>
+  <p><strong>Competenze tecniche:</strong> Ho acquisito padronanza avanzata di React 19 e del suo ecosistema, inclusi <em>hooks</em>, <em>context</em> e componenti funzionali, insieme all'utilizzo professionale di TypeScript con configurazione <em>strict mode</em>. Sul fronte della gestione dello stato ho imparato a lavorare con TanStack React Query per i dati provenienti dal <em>server</em> e Zustand per lo stato locale. Ho inoltre sviluppato competenze nella progettazione di interfacce con Material-UI e nella personalizzazione dei temi, nell'implementazione di architetture a pannelli modulari con Dockview e nell'utilizzo di react-hook-form per la gestione di form complessi. Completano il quadro la configurazione della <em>build toolchain</em> con Vite, la gestione delle traduzioni con i18next e il controllo versione con Git in un <em>workflow</em> collaborativo.</p>
 
-  <p><strong>Competenze metodologiche:</strong></p>
-  <ul>
-    <li>progettazione di architetture software modulari e riusabili;</li>
-    <li>applicazione del pattern <strong>Factory Method</strong> e dei <strong>componenti generici</strong>;</li>
-    <li>organizzazione del codice secondo il pattern <strong>feature-sliced</strong>;</li>
-    <li>capacità di analisi dei requisiti a partire da un sistema legacy;</li>
-    <li>gestione del coordinamento con un team ridotto in un contesto agile.</li>
-  </ul>
+  <p><strong>Competenze metodologiche:</strong> Sul piano metodologico ho appreso la progettazione di architetture software modulari e riusabili, l'applicazione del pattern <em>Factory Method</em> e dei componenti generici, e l'organizzazione del codice secondo il pattern <em>feature-sliced</em>. Ho inoltre sviluppato la capacità di analizzare i requisiti a partire da un sistema <em>legacy</em> e di gestire il coordinamento con un team ridotto in un contesto agile.</p>
 
-  <p><strong>Soft skill:</strong></p>
-  <ul>
-    <li>autonomia decisionale e progettuale;</li>
-    <li>capacità di problem-solving in contesti con requisiti non definiti;</li>
-    <li>comunicazione efficace con colleghi e stakeholder;</li>
-    <li>gestione del tempo e delle priorità in uno scenario di sviluppo reale.</li>
-  </ul>
+  <p><strong>Soft skill:</strong> Sul versante delle competenze trasversali, ho maturato autonomia decisionale e progettuale, capacità di <em>problem-solving</em> in contesti con requisiti non definiti, comunicazione efficace con colleghi e <em>stakeholder</em> e gestione del tempo e delle priorità in uno scenario di sviluppo reale.</p>
 
   <h2 id="sec4-3">4.3 Prospettive future</h2>
 
@@ -864,9 +770,16 @@ Pannello Contatti — context #3 → store Zustand #3 — { selectedId: 3, formE
   <p>Il progetto sviluppato per Conceria Tre Emme rimarrà un punto di riferimento nel mio percorso professionale: un progetto concreto, utilizzato da utenti reali, che ha sostituito un sistema obsoleto con una soluzione moderna e performante, migliorando l'efficienza operativa di un'azienda manifatturiera.</p>
 </div>
 
+<!-- ===== NOTE ===== -->
+<div class="chapter bibliografia">
+  <h1 id="note">Note</h1>
+
+  <p><sup>1</sup> Dati estratti dal repository GitHub del progetto, consultabili all'indirizzo <a href="https://github.com/anomalyco/repo-tesina">https://github.com/anomalyco/repo-tesina</a>.</p>
+</div>
+
 <!-- ===== BIBLIOGRAFIA ===== -->
 <div class="chapter bibliografia">
-  <h1 id="bibliografia">Riferimenti</h1>
+  <h1 id="bibliografia">Riferimenti bibliografici</h1>
 
   <p>Di seguito sono elencate le referenze alle librerie, ai framework e ai materiali utilizzati per la realizzazione del presente project work.</p>
 
@@ -882,7 +795,7 @@ Pannello Contatti — context #3 → store Zustand #3 — { selectedId: 3, formE
   <p>Axios — HTTP client per browser e Node.js. <a href="https://axios-http.com">https://axios-http.com</a></p>
   <p>Symfony — Framework PHP. <a href="https://symfony.com">https://symfony.com</a></p>
   <p>MySQL — Database relazionale. <a href="https://www.mysql.com">https://www.mysql.com</a></p>
-  <p>Fondazione ITS DIGITAL ACADEMY Mario Volpato — <a href="https://www.itsdigitalacademy.com">https://www.itsdigitalacademy.com</a></p>
+  <p>Fondazione ITS DIGITAL ACADEMY Mario Volpato. <a href="https://www.itsdigitalacademy.com">https://www.itsdigitalacademy.com</a></p>
   <p>NetEvolution — Web Marketing e Sviluppo Software. <a href="https://net-evolution.com">https://net-evolution.com</a></p>
 </div>
 
