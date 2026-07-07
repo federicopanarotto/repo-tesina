@@ -22,158 +22,78 @@ body {
 /* ===== COVER PAGE ===== */
 .cover-page {
   page-break-after: always;
-  text-align: center;
-  padding-top: 80px;
+  text-align: left;
+  padding-top: 40px;
   position: relative;
-}
-.cover-page::before {
-  content: '';
-  position: absolute;
-  top: 0; left: 0; right: 0;
-  height: 8px;
-  background: linear-gradient(90deg, #0d47a1, #1976d2, #42a5f5);
 }
 .cover-page .cover-esame {
   font-family: Verdana, 'Segoe UI', sans-serif;
-  font-size: 14pt;
+  font-size: 16pt;
   font-weight: 700;
-  color: #0d47a1;
-  letter-spacing: 4px;
-  margin-bottom: 6px;
+  color: #328490;
+  margin-bottom: 4px;
 }
 .cover-page .cover-biennio {
   font-family: Verdana, 'Segoe UI', sans-serif;
   font-size: 11pt;
   font-weight: 600;
-  color: #333;
-  margin-bottom: 40px;
-}
-.cover-page .cover-its {
-  font-family: Verdana, 'Segoe UI', sans-serif;
-  font-size: 11pt;
-  color: #555;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  margin-bottom: 50px;
-}
-.cover-page .cover-its strong {
-  color: #0d47a1;
-  font-size: 13pt;
-}
-.cover-page .cover-title {
-  font-family: Verdana, 'Segoe UI', sans-serif;
-  font-size: 14pt;
-  font-weight: 700;
-  color: #111;
-  line-height: 1.3;
-  margin-bottom: 10px;
-}
-.cover-page .cover-relazione {
-  font-family: Verdana, 'Segoe UI', sans-serif;
-  font-size: 14pt;
-  font-weight: 700;
-  color: #0d47a1;
-  letter-spacing: 2px;
-  margin-top: 30px;
+  color: #1a1a1a;
   margin-bottom: 30px;
 }
-.cover-page .cover-label {
-  font-family: Verdana, 'Segoe UI', sans-serif;
-  font-size: 10pt;
-  font-weight: 600;
-  color: #666;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  margin-top: 18px;
-  margin-bottom: 4px;
+.cover-page .cover-field {
+  margin-bottom: 18px;
 }
-.cover-page .cover-thesis-title {
-  font-family: 'Times New Roman', Times, serif;
-  font-size: 14pt;
+.cover-page .cover-field .field-label {
+  display: inline-block;
+  font-family: Verdana, 'Segoe UI', sans-serif;
+  font-size: 9pt;
   font-weight: 700;
   color: #1a1a1a;
-  line-height: 1.4;
-  margin-bottom: 10px;
+  background: #fcb814;
+  padding: 0 8px;
+  margin-bottom: 3px;
+  text-transform: uppercase;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
 }
-.cover-page .cover-author {
+.cover-page .cover-field .field-value {
+  display: block;
   font-family: 'Times New Roman', Times, serif;
-  font-size: 14pt;
-  font-weight: 400;
-  color: #333;
+  font-size: 12pt;
+  color: #1a1a1a;
+  margin-left: 0;
 }
-.cover-page .cover-subtitle {
-  font-family: 'Times New Roman', Times, serif;
-  font-size: 13pt;
-  color: #444;
-  font-style: italic;
-  margin-bottom: 50px;
-}
-.cover-page .cover-details {
+.cover-page .cover-section-title {
   font-family: Verdana, 'Segoe UI', sans-serif;
-  font-size: 10pt;
-  color: #333;
-  line-height: 2.2;
-  margin-bottom: 10px;
-}
-.cover-page .cover-details b {
-  font-size: 10.5pt;
-  color: #111;
-}
-.cover-page hr {
-  width: 40%;
-  margin: 35px auto;
-  border: none;
-  border-top: 2px solid #0d47a1;
+  font-size: 14pt;
+  font-weight: 700;
+  color: #328490;
+  margin-top: 28px;
+  margin-bottom: 16px;
 }
 .cover-page .cover-footer {
   font-family: Verdana, 'Segoe UI', sans-serif;
-  font-size: 9.5pt;
-  color: #666;
-  line-height: 1.8;
-  margin-top: 60px;
-}
-.toc-logo {
-  text-align: center;
-  margin-top: 20px;
-  padding-top: 6px;
-}
-.toc-logo img {
-  max-width: 360px;
-  height: auto;
-  border: none;
-  box-shadow: none;
-  padding: 0;
-  margin-bottom: 6px;
-}
-.toc-logo .toc-logo-text {
-  font-family: Verdana, 'Segoe UI', sans-serif;
   font-size: 9pt;
   color: #555;
-  line-height: 1.4;
+  line-height: 1.6;
+  margin-top: 50px;
 }
-.toc-logo .toc-logo-text strong {
-  color: #0d47a1;
-  font-size: 10pt;
+.cover-page .cover-footer .footer-line {
+  display: block;
 }
-.cover-footer .cover-logo {
-  margin-bottom: 15px;
+.cover-page .cover-footer .footer-line strong {
+  color: #328490;
 }
-.cover-footer .cover-logo img {
-  max-width: 420px;
+.cover-page .cover-logo {
+  margin-top: 20px;
+  text-align: left;
+}
+.cover-page .cover-logo img {
+  max-width: 380px;
   height: auto;
   border: none;
   box-shadow: none;
   padding: 0;
-}
-.cover-footer .cover-footer-text {
-  font-family: Verdana, 'Segoe UI', sans-serif;
-  font-size: 11pt;
-  color: #555;
-  line-height: 1.6;
-}
-.cover-footer .cover-footer-text strong {
-  color: #0d47a1;
-  font-size: 12pt;
 }
 
 /* ===== TABLE OF CONTENTS ===== */
@@ -184,8 +104,8 @@ body {
   font-family: Verdana, 'Segoe UI', sans-serif;
   font-size: 14pt;
   font-weight: 700;
-  color: #0d47a1;
-  border-bottom: 2px solid #0d47a1;
+  color: #328490;
+  border-bottom: 2px solid #328490;
   padding-bottom: 8px;
   margin-bottom: 24px;
 }
@@ -254,11 +174,11 @@ body {
   font-family: Verdana, 'Segoe UI', sans-serif;
   font-size: 14pt;
   font-weight: 700;
-  color: #0d47a1;
+  color: #328490;
   margin-top: 0;
   margin-bottom: 20px;
   padding-bottom: 8px;
-  border-bottom: 2px solid #0d47a1;
+  border-bottom: 2px solid #328490;
 }
 .chapter h1::before {
   content: counter(chapter) ". ";
@@ -269,8 +189,8 @@ body {
   font-family: Verdana, 'Segoe UI', sans-serif;
   font-size: 14pt;
   font-weight: 700;
-  color: #0d47a1;
-  border-bottom: 2px solid #0d47a1;
+  color: #328490;
+  border-bottom: 2px solid #328490;
   padding-bottom: 8px;
   margin-bottom: 20px;
 }
@@ -311,13 +231,13 @@ th, td {
 th {
   background: #e8eaf6;
   font-weight: 700;
-  color: #0d47a1;
+  color: #328490;
 }
 
 pre {
   background: #f5f5f5;
   border: 1px solid #ddd;
-  border-left: 4px solid #0d47a1;
+  border-left: 4px solid #328490;
   padding: 12px 16px;
   font-family: 'Consolas', 'Courier New', 'Liberation Mono', monospace;
   font-size: 9pt;
@@ -369,7 +289,7 @@ blockquote {
   margin: 14px 24px;
   font-style: italic;
   color: #555;
-  border-left: 3px solid #0d47a1;
+  border-left: 3px solid #328490;
   padding-left: 14px;
 }
 
@@ -380,7 +300,7 @@ blockquote {
   text-indent: -36px;
 }
 .bibliografia p a {
-  color: #0d47a1;
+  color: #328490;
   word-break: break-all;
 }
 
@@ -417,7 +337,6 @@ blockquote {
   h3 { page-break-after: avoid; }
   img, pre, table { page-break-inside: avoid; }
   a { text-decoration: none; color: inherit; }
-  .cover-page::before { height: 6px; }
 }
 </style>
 </head>
@@ -428,33 +347,50 @@ blockquote {
   <div class="cover-esame">ESAME DI STATO</div>
   <div class="cover-biennio">Biennio 2024/2026</div>
 
-  <div class="cover-details">
-    <b>Area Tecnologica:</b> Tecnologie dell'informazione, della comunicazione e dei dati<br>
-    <b>Ambiti:</b> 10.1 Architetture Software e Data Management<br>
-    <b>Figura Professionale:</b> Tecnico Superiore per i Metodi e le Tecnologie per lo Sviluppo di Sistemi Software<br>
-    <b>Titolo Specifico:</b> Web Developer Full Stack (Vicenza)<br>
-    <b>Codice Regionale Percorso:</b> 7346-0005-803-2024
+  <div class="cover-field">
+    <span class="field-label">AREA TECNOLOGICA</span>
+    <span class="field-value">Tecnologie dell'informazione, della comunicazione e dei dati</span>
   </div>
 
-  <hr>
+  <div class="cover-field">
+    <span class="field-label">AMBITI</span>
+    <span class="field-value">10.1 Architetture Software e Data Management</span>
+  </div>
 
-  <div class="cover-relazione">RELAZIONE PROJECT WORK</div>
+  <div class="cover-field">
+    <span class="field-label">FIGURA PROFESSIONALE</span>
+    <span class="field-value">Tecnico Superiore Sviluppatore Software</span>
+  </div>
 
-  <div class="cover-label">TITOLO RELAZIONE</div>
-  <div class="cover-thesis-title">Sviluppo Software Gestionale Conceria a Pannelli Modulari</div>
+  <div class="cover-field">
+    <span class="field-label">TITOLO SPECIFICO</span>
+    <span class="field-value">Web Developer Full Stack (Vicenza)</span>
+  </div>
 
-  <div class="cover-label">NOME E COGNOME</div>
-  <div class="cover-author">Federico Panarotto</div>
+  <div class="cover-field">
+    <span class="field-label">CODICE REGIONALE PERCORSO</span>
+    <span class="field-value">7346-0005-803-2024</span>
+  </div>
 
-  <hr>
+  <div class="cover-section-title">Relazione Project Work</div>
+
+  <div class="cover-field">
+    <span class="field-label">TITOLO RELAZIONE</span>
+    <span class="field-value">Sviluppo Software Gestionale Conceria a Pannelli Modulari</span>
+  </div>
+
+  <div class="cover-field">
+    <span class="field-label">NOME E COGNOME</span>
+    <span class="field-value">Federico Panarotto</span>
+  </div>
 
   <div class="cover-footer">
-    <div class="cover-logo"><img src="imgs/loghi-its.jpg" alt="ITS Digital Academy"></div>
-    <div class="cover-footer-text">
-      <strong>Fondazione ITS DIGITAL ACADEMY Mario Volpato</strong><br>
-      Via Risorgimento, 29 — Noventa Padovana (PD) — info@itsdigitalacademy.com
-    </div>
+    <span class="footer-line"><strong>Fondazione ITS DIGITAL ACADEMY Mario Volpato</strong></span>
+    <span class="footer-line">Via Risorgimento, 29 — Noventa Padovana (PD)</span>
+    <span class="footer-line">info@itsdigitalacademy.com</span>
   </div>
+
+  <div class="cover-logo"><img src="imgs/loghi-its.jpg" alt="ITS Digital Academy"></div>
 </div>
 
 <!-- ===== TABLE OF CONTENTS ===== -->
