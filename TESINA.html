@@ -194,10 +194,12 @@ body {
   line-height: 2.4;
 }
 .toc-page .toc-item a {
-  font-weight: 700;
   color: #111;
   text-decoration: none;
+  display: flex;
+  align-items: baseline;
 }
+.toc-page .toc-item .toc-label { font-weight: 700; }
 .toc-page .toc-item a:hover { text-decoration: underline; }
 .toc-page .toc-sub {
   padding-left: 32px;
@@ -207,6 +209,8 @@ body {
 .toc-page .toc-sub a {
   color: #333;
   text-decoration: none;
+  display: flex;
+  align-items: baseline;
 }
 .toc-page .toc-sub a:hover { text-decoration: underline; }
 .toc-page a, .toc-page a:visited { color: inherit; }
@@ -214,16 +218,25 @@ body {
   margin-top: 6px;
   margin-bottom: 2px;
 }
-/* Print: page numbers in TOC */
-@media print {
-  .toc-page .toc-item a::after {
-    content: target-counter(attr(href), page);
-    float: right;
-  }
-  .toc-page .toc-sub a::after {
-    content: target-counter(attr(href), page);
-    float: right;
-  }
+.toc-page .toc-label {
+  flex-shrink: 0;
+}
+.toc-page .toc-dots {
+  flex: 1 1 auto;
+  min-width: 16px;
+  text-align: center;
+  overflow: hidden;
+}
+.toc-page .toc-dots::after {
+  content: ". . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .";
+  color: #999;
+  font-size: 10pt;
+  white-space: nowrap;
+}
+.toc-page .toc-pg {
+  flex-shrink: 0;
+  text-align: right;
+  min-width: 24px;
 }
 .toc-page .toc-sub a:hover { text-decoration: underline; }
 .toc-page a, .toc-page a:visited { color: inherit; }
@@ -448,32 +461,32 @@ blockquote {
 <div class="toc-page">
   <h1>Indice</h1>
 
-  <div class="toc-item toc-section"><a href="#sommario">Sommario</a></div>
+  <div class="toc-item toc-section"><a href="#sommario"><span class="toc-label">Sommario</span><span class="toc-dots"></span><span class="toc-pg">P. 3</span></a></div>
 
-  <div class="toc-item toc-section"><a href="#cap1">1. Presentazione dell'azienda</a></div>
-  <div class="toc-sub"><a href="#sec1-1">1.1 NetEvolution</a></div>
-  <div class="toc-sub"><a href="#sec1-2">1.2 Contesto di tirocinio e modalità di lavoro</a></div>
+  <div class="toc-item toc-section"><a href="#cap1"><span class="toc-label">1. Presentazione dell'azienda</span><span class="toc-dots"></span><span class="toc-pg">P. 4</span></a></div>
+  <div class="toc-sub"><a href="#sec1-1"><span class="toc-label">1.1 NetEvolution</span><span class="toc-dots"></span><span class="toc-pg">P. 4</span></a></div>
+  <div class="toc-sub"><a href="#sec1-2"><span class="toc-label">1.2 Contesto di tirocinio e modalità di lavoro</span><span class="toc-dots"></span><span class="toc-pg">P. 4</span></a></div>
 
-  <div class="toc-item toc-section"><a href="#cap2">2. Il progetto: software gestionale per Conceria Tre Emme</a></div>
-  <div class="toc-sub"><a href="#sec2-1">2.1 Contesto e obiettivi del progetto</a></div>
-  <div class="toc-sub"><a href="#sec2-2">2.2 Target di riferimento e stakeholder</a></div>
-  <div class="toc-sub"><a href="#sec2-3">2.3 Requisiti del progetto</a></div>
-  <div class="toc-sub"><a href="#sec2-4">2.4 Metodologie e tecnologie adottate</a></div>
-  <div class="toc-sub"><a href="#sec2-5">2.5 Architettura del frontend</a></div>
-  <div class="toc-sub"><a href="#sec2-6">2.6 Organizzazione, struttura e modalità di lavoro in team</a></div>
+  <div class="toc-item toc-section"><a href="#cap2"><span class="toc-label">2. Il progetto: software gestionale per Conceria Tre Emme</span><span class="toc-dots"></span><span class="toc-pg">P. 5</span></a></div>
+  <div class="toc-sub"><a href="#sec2-1"><span class="toc-label">2.1 Contesto e obiettivi del progetto</span><span class="toc-dots"></span><span class="toc-pg">P. 5</span></a></div>
+  <div class="toc-sub"><a href="#sec2-2"><span class="toc-label">2.2 Target di riferimento e stakeholder</span><span class="toc-dots"></span><span class="toc-pg">P. 6</span></a></div>
+  <div class="toc-sub"><a href="#sec2-3"><span class="toc-label">2.3 Requisiti del progetto</span><span class="toc-dots"></span><span class="toc-pg">P. 6</span></a></div>
+  <div class="toc-sub"><a href="#sec2-4"><span class="toc-label">2.4 Metodologie e tecnologie adottate</span><span class="toc-dots"></span><span class="toc-pg">P. 7</span></a></div>
+  <div class="toc-sub"><a href="#sec2-5"><span class="toc-label">2.5 Architettura del frontend</span><span class="toc-dots"></span><span class="toc-pg">P. 8</span></a></div>
+  <div class="toc-sub"><a href="#sec2-6"><span class="toc-label">2.6 Organizzazione, struttura e modalità di lavoro in team</span><span class="toc-dots"></span><span class="toc-pg">P. 11</span></a></div>
 
-  <div class="toc-item toc-section"><a href="#cap3">3. Risultati conseguiti</a></div>
-  <div class="toc-sub"><a href="#sec3-1">3.1 Risultati raggiunti</a></div>
-  <div class="toc-sub"><a href="#sec3-2">3.2 Criticità riscontrate</a></div>
-  <div class="toc-sub"><a href="#sec3-3">3.3 Possibili sviluppi futuri</a></div>
+  <div class="toc-item toc-section"><a href="#cap3"><span class="toc-label">3. Risultati conseguiti</span><span class="toc-dots"></span><span class="toc-pg">P. 13</span></a></div>
+  <div class="toc-sub"><a href="#sec3-1"><span class="toc-label">3.1 Risultati raggiunti</span><span class="toc-dots"></span><span class="toc-pg">P. 13</span></a></div>
+  <div class="toc-sub"><a href="#sec3-2"><span class="toc-label">3.2 Criticità riscontrate</span><span class="toc-dots"></span><span class="toc-pg">P. 15</span></a></div>
+  <div class="toc-sub"><a href="#sec3-3"><span class="toc-label">3.3 Possibili sviluppi futuri</span><span class="toc-dots"></span><span class="toc-pg">P. 16</span></a></div>
 
-  <div class="toc-item toc-section"><a href="#cap4">4. Conclusioni</a></div>
-  <div class="toc-sub"><a href="#sec4-1">4.1 Riflessioni sull'esperienza formativa</a></div>
-  <div class="toc-sub"><a href="#sec4-2">4.2 Competenze acquisite</a></div>
-  <div class="toc-sub"><a href="#sec4-3">4.3 Prospettive future</a></div>
+  <div class="toc-item toc-section"><a href="#cap4"><span class="toc-label">4. Conclusioni</span><span class="toc-dots"></span><span class="toc-pg">P. 17</span></a></div>
+  <div class="toc-sub"><a href="#sec4-1"><span class="toc-label">4.1 Riflessioni sull'esperienza formativa</span><span class="toc-dots"></span><span class="toc-pg">P. 17</span></a></div>
+  <div class="toc-sub"><a href="#sec4-2"><span class="toc-label">4.2 Competenze acquisite</span><span class="toc-dots"></span><span class="toc-pg">P. 18</span></a></div>
+  <div class="toc-sub"><a href="#sec4-3"><span class="toc-label">4.3 Prospettive future</span><span class="toc-dots"></span><span class="toc-pg">P. 18</span></a></div>
 
-  <div class="toc-item toc-section"><a href="#note">Note</a></div>
-  <div class="toc-item toc-section"><a href="#bibliografia">5. Riferimenti bibliografici</a></div>
+  <div class="toc-item toc-section"><a href="#note"><span class="toc-label">Note</span><span class="toc-dots"></span><span class="toc-pg">P. 19</span></a></div>
+  <div class="toc-item toc-section"><a href="#bibliografia"><span class="toc-label">5. Riferimenti bibliografici</span><span class="toc-dots"></span><span class="toc-pg">P. 20</span></a></div>
   <div class="toc-logo">
     <img src="imgs/loghi-its.jpg" alt="ITS Digital Academy">
     <div class="toc-logo-text">
