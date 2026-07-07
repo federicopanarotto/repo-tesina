@@ -670,13 +670,13 @@ useDelete()      → DELETE /endpoint/:id (eliminazione)</pre>
 
   <p><strong>Gestione dello stato dei pannelli:</strong></p>
 
-  <p>Un aspetto critico dell'architettura è stata la gestione dello stato separato per ogni pannello. Poiché l'utente può aprire più pannelli contemporaneamente, anche dello stesso tipo, è fondamentale che ogni istanza mantenga il proprio stato indipendente. La soluzione adottata utilizza Zustand per creare uno store isolato per ciascun pannello al momento della sua apertura:</p>
+  <p>Un aspetto critico dell'architettura è stata la gestione dello stato separato per ogni pannello. Poiché l'utente può aprire più pannelli contemporaneamente, anche dello stesso tipo, è fondamentale che ogni istanza mantenga il proprio stato indipendente. La soluzione adottata integra Zustand all'interno del componente <strong>GenericPanel</strong>: ogni pannello è avvolto da un proprio context React, all'interno del quale viene istanziata dinamicamente una factory di Zustand che genera uno store isolato. In questo modo si evita il problema di avere uno store globale tra più pannelli dello stesso tipo.</p>
 
-  <pre>Pannello Lotti #1 — store Zustand #1 — { selectedId: 5, formEnabled: false }
-Pannello Lotti #2 — store Zustand #2 — { selectedId: 12, formEnabled: true }
-Pannello Contatti — store Zustand #3 — { selectedId: 3, formEnabled: false }</pre>
+  <pre>Pannello Lotti #1 — context #1 → store Zustand #1 — { selectedId: 5, formEnabled: false }
+Pannello Lotti #2 — context #2 → store Zustand #2 — { selectedId: 12, formEnabled: true }
+Pannello Contatti — context #3 → store Zustand #3 — { selectedId: 3, formEnabled: false }</pre>
 
-  <p>In questo modo, la modifica dello stato su un pannello non interferisce con gli altri, e i componenti generici possono riutilizzare la stessa logica senza preoccuparsi dell'isolamento dello stato. La creazione dinamica degli store avviene tramite una factory di Zustand che genera un nuovo store ogni volta che un pannello viene aperto, associandolo a un identificatore univoco.</p>
+  <p>Grazie a questo pattern, la modifica dello stato su un pannello non interferisce con gli altri e i componenti generici possono riutilizzare la stessa logica senza preoccuparsi dell'isolamento dello stato. La factory di Zustand, creata all'interno del context del GenericPanel, genera un nuovo store associato a un identificatore univoco ogni volta che un pannello viene aperto.</p>
 
   <p><strong>Comunicazione cross-pannello:</strong></p>
 
