@@ -198,13 +198,6 @@ body {
   color: #111;
   text-decoration: none;
 }
-.toc-page .toc-item a {
-  display: flex;
-  justify-content: space-between;
-}
-.toc-page .toc-item a::after {
-  content: target-counter(attr(href), page);
-}
 .toc-page .toc-item a:hover { text-decoration: underline; }
 .toc-page .toc-sub {
   padding-left: 32px;
@@ -214,11 +207,23 @@ body {
 .toc-page .toc-sub a {
   color: #333;
   text-decoration: none;
-  display: flex;
-  justify-content: space-between;
 }
-.toc-page .toc-sub a::after {
-  content: target-counter(attr(href), page);
+.toc-page .toc-sub a:hover { text-decoration: underline; }
+.toc-page a, .toc-page a:visited { color: inherit; }
+.toc-page .toc-section {
+  margin-top: 6px;
+  margin-bottom: 2px;
+}
+/* Print: page numbers in TOC */
+@media print {
+  .toc-page .toc-item a::after {
+    content: target-counter(attr(href), page);
+    float: right;
+  }
+  .toc-page .toc-sub a::after {
+    content: target-counter(attr(href), page);
+    float: right;
+  }
 }
 .toc-page .toc-sub a:hover { text-decoration: underline; }
 .toc-page a, .toc-page a:visited { color: inherit; }
